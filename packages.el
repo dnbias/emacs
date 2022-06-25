@@ -31,4 +31,5 @@
 (package! org-roam-ui)
 (package! eww)
 (package! org-modern)
+(package! org-appear)
 (package! rainbow-mode)

@@ -36,7 +36,9 @@
 (add-hook! '+doom-dashboard-mode-hook (hide-mode-line-mode 1) (hl-line-mode -1))
 (setq-hook! '+doom-dashboard-mode-hook cursor-type (list nil))
 
-(load! "fancy-splash")
+;; (load! "fancy-splash")
+(load! "fancy-phrases")
+(setq fancy-splash-image "~/.config/doom/misc/splash-images/emacs-e.svg")
 
 ;; change mode-line color by evil state
 (lexical-let ((default-color (cons (face-background 'mode-line)

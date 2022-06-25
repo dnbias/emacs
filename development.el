@@ -44,7 +44,7 @@
   :custom
   ;; what to use when checking on-save. "check" is default, I prefer clippy
   (lsp-auto-guess-root nil)
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
+  (lsp-rust-analyzer-cargo-watch-command "check")
   (lsp-eldoc-render-all nil)
   (lsp-idle-delay 0.6)
   ;; enable / disable the hints as you prefer:
@@ -115,8 +115,8 @@
   ;; (setq lsp-eldoc-hook nil)
   (setq lsp-enable-symbol-highlighting t)
   (setq lsp-signature-auto-activate t)
-
-  ;; comment to disable rustfmt on save
-  (setq rustic-format-on-save t))
+  (setq rustic-format-on-save nil))
 
 (use-package! rainbow-mode)
+
+(setq +zen-text-scale 1.2)

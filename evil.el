@@ -33,17 +33,6 @@
                     "kill from point to the beginning of the line"
                     (kill-line 0))
       )
-;; change mode-line color by evil state
-(lexical-let ((default-color (cons (face-background 'mode-line)
-                                   (face-foreground 'mode-line))))
-  (add-hook 'post-command-hook
-            (lambda ()
-              (let ((color (cond ((minibufferp) default-color)
-                                 ((evil-insert-state-p) '("#e80000" . "#ffffff"))
-                                 ((evil-emacs-state-p)  '("#444488" . "#ffffff"))
-                                 (t default-color))))
-                (set-face-background 'mode-line (car color))
-                (set-face-foreground 'mode-line (cdr color))))))
 
 (defun +doom-dashboard-setup-modified-keymap ()
   (setq +doom-dashboard-mode-map (make-sparse-keymap))
