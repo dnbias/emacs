@@ -5,8 +5,10 @@
        user-mail-address "mail@dnbias.dev")
 
 (load! "evil")
-(load! "theme")
 (load! "org")
+(load! "roam")
 (load! "nov")
 (load! "development")
 (load! "deft")
+(load! "misc")
+(load! "theme")

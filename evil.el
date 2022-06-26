@@ -5,6 +5,7 @@
 (map! :leader "," #'+workspace/switch-left)
 (map! :leader "." #'+workspace/swap-right)
 (map! :leader ";" #'comment-line)
+(map! :leader "<escape>" #'next-window-any-frame)
 
 (map! :after evil
       :map evil-visual-state-map

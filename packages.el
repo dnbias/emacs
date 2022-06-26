@@ -33,3 +33,6 @@
 (package! org-modern)
 (package! org-appear)
 (package! rainbow-mode)
+(package! sublimity)
+(package! eradio)
+(package! perfect-margin)

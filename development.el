@@ -120,3 +120,14 @@
 (use-package! rainbow-mode)
 
 (setq +zen-text-scale 1.2)
+
+(use-package! sublimity
+  :hook
+  (text-mode . sublimity-mode)
+  :config
+  (require 'sublimity-scroll)
+  :custom
+  (sublimity-scroll-hide-cursor nil)
+  (sublimity-scroll-weight 6)
+  (sublimity-scroll-drift-length 8)
+  (sublimity-scroll-vertical-frame-delay 0.01))

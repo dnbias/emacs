@@ -5,8 +5,8 @@
   "Default template svg used for the splash image, with substitutions from ")
 
 (defvar fancy-splash-sizes
-  `((:height 300 :min-height 50 :padding (0 . 2))
-    (:height 250 :min-height 42 :padding (2 . 4))
+  `((:height 500 :min-height 50 :padding (0 . 2))
+    (:height 350 :min-height 42 :padding (2 . 4))
     (:height 200 :min-height 35 :padding (3 . 3))
     (:height 150 :min-height 28 :padding (3 . 3))
     (:height 100 :min-height 20 :padding (2 . 2))

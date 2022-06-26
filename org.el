@@ -1,4 +1,10 @@
 ;;; org.el -*- lexical-binding: t; -*-
+
+(setq org-directory "~/Documents/brain/"
+      org-roam-directory (expand-file-name "roam/" org-directory))
+(defvar-local journal-file-path (expand-file-name "journal.org" org-roam-directory))
+;; (defvar-local TBR-file-path (expand-file-name "TBR.org" org-roam-directory))
+
 (after! org
   (setq org-todo-keywords
         '((sequence "TODO(t)" "DOING(d)" "TBR(r)" "READING(e)"
@@ -9,29 +15,24 @@
 (setq org-modern-star '("" "" "")
       org-modern-hide-stars t)
 (use-package org
+  :bind
+  ("C-c r" . org-roam-node-find)
+  ("C-c i" . org-roam-node-insert)
+  ("C-c j" . org-roam-dailies-capture-today)
   :hook
   (org-mode . global-org-modern-mode)
   (org-mode . (lambda()(org-num-mode 1)))
   (org-mode . (lambda()(display-line-numbers-mode -1)))
-  (org-mode . (lambda()(org-indent-mode -1))))
-(setq line-spacing 0.5)
-(add-hook 'lisp-mode-hook 'my-buffer-face-mode-variable)
-(modify-all-frames-parameters
- '((right-divider-width . 5)
-   (internal-border-width . 40)))
-(dolist (face '(window-divider
-                window-divider-first-pixel
-                window-divider-last-pixel))
-  (face-spec-reset-face face)
-  (set-face-foreground face (face-attribute 'default :background)))
-(set-face-background 'fringe (face-attribute 'default :background))
+  (org-mode . (lambda()(org-indent-mode -1)))
+  :custom
+  (line-spacing 0))
 
 (let* ((variable-tuple
-        (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
-              ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
-              ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
-              ((x-list-fonts "Verdana")         '(:font "Verdana"))
-              ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+        (cond ((x-list-fonts "SF Pro") '(:font "SF Pro"))
+              ((x-list-fonts "Source Sans Pro")  '(:font "Source Sans Pro"))
+              ((x-list-fonts "Lucida Grande")    '(:font "Lucida Grande"))
+              ((x-list-fonts "Verdana")          '(:font "Verdana"))
+              ((x-family-fonts "Sans Serif")     '(:family "Sans Serif"))
               (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
        (base-font-color     (face-foreground 'default nil 'default))
        (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
@@ -77,11 +78,6 @@
  "⭠ now ─────────────────────────────────────────────────")
 
 
-(setq org-directory "~/Documents/brain/"
-      org-roam-directory (expand-file-name "roam/" org-directory))
-(defvar-local journal-file-path (expand-file-name "journal.org" org-roam-directory))
-;; (defvar-local TBR-file-path (expand-file-name "TBR.org" org-roam-directory))
-
 (after! org
   (setq org-capture-templates
   '(("t" "Todo" entry (file+headline todo-file-path "Tasks")
@@ -90,8 +86,7 @@
      "\n* TBR %?  %^G \n%U")
     ("j" "Bullet Journal" entry (file+olp+datetree journal-file-path)
      "** %<%H:%M> %?\n")
-    ("r" "Roam"  entry (file org-roam-find-file) ;;capture-new-file non funge per qualche motivo
-     ""))))
+     "")))
 
 (defun org-archive-done-tasks ()
   (interactive)
@@ -106,25 +101,7 @@
   :config
   (setq org-appear-autoemphasis t
         org-appear-autosubmarkers t
-        org-appear-autolinks nil)
+        org-appear-autolinks t)
   ;; for proper first-time setup, `org-appear--set-elements'
   ;; needs to be run after other hooks have acted.
   (run-at-time nil nil #'org-appear--set-elements))
-
-
-(after! org-roam
-  ;; Offer completion for #tags and @areas separately from notes.
-  (add-to-list 'org-roam-completion-functions #'org-roam-complete-tag-at-point)
-  ;; Automatically update the slug in the filename when #+title: has changed.
-  ;; (add-hook 'org-roam-find-file-hook #'org-roam-update-slug-on-save-h)
-  ;; Make the backlinks buffer easier to peruse by folding leaves by default.
-  (add-hook 'org-roam-buffer-postrender-functions #'magit-section-show-level-2)
-  ;; List dailies and zettels separately in the backlinks buffer.
-  (advice-add #'org-roam-backlinks-section :override #'org-roam-grouped-backlinks-section)
-  ;; Open in focused buffer, despite popups
-  (advice-add #'org-roam-node-visit :around #'+popup-save-a)
-  ;; Make sure tags in vertico are sorted by insertion order, instead of
-  ;; arbitrarily (due to the use of group_concat in the underlying SQL query).
-  (advice-add #'org-roam-node-list :filter-return #'org-roam-restore-insertion-order-for-tags-a)
-  ;; Add ID, Type, Tags, and Aliases to top of backlinks buffer.
-  (advice-add #'org-roam-buffer-set-header-line-format :after #'org-roam-add-preamble-a))
