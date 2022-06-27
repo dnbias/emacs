@@ -10,5 +10,5 @@
 (load! "nov")
 (load! "development")
 (load! "deft")
-(load! "misc")
 (load! "theme")
+(load! "misc")

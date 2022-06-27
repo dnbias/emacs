@@ -40,9 +40,10 @@
 (use-package lsp-mode
   :commands lsp
   :hook
-  (rust-mode . lsp-mode)
+  (prog-mode . 'lsp-deferred)
   :custom
   ;; what to use when checking on-save. "check" is default, I prefer clippy
+  (lsp-warn-no-matched-clients nil) ;; no chit-chat
   (lsp-auto-guess-root nil)
   (lsp-rust-analyzer-cargo-watch-command "check")
   (lsp-eldoc-render-all nil)
@@ -68,7 +69,7 @@
   (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-hover t)
   (lsp-ui-sideline-show-symbol t)
-  (lps-eldoc-hook nil))
+  (lsp-eldoc-hook nil))
 
 (use-package dap-mode
   :config
