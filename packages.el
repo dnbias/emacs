@@ -36,3 +36,4 @@
 (package! sublimity)
 (package! eradio)
 (package! perfect-margin)
+(package! vuiet)

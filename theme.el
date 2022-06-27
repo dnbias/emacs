@@ -57,18 +57,21 @@
                 (set-face-foreground 'mode-line (cdr color))))))
 
 (add-hook 'lisp-mode-hook 'my-buffer-face-mode-variable)
-(modify-all-frames-parameters
- '((right-divider-width . 5)
-   (internal-border-width . 0)))
-(dolist (face '(window-divider
-                window-divider-first-pixel
-                window-divider-last-pixel))
-  (face-spec-reset-face face)
-  (set-face-foreground face (face-attribute 'default :background)))
+;(add-hook 'after-make-frame-functions
+;          #'(lambda(_frame)
+;            (modify-all-frames-parameters
+;             '((right-divider-width . 5)
+;               (internal-border-width . 0)))
+;            (dolist (face '(window-divider
+;                            window-divider-first-pixel
+;                            window-divider-last-pixel))
+;              (face-spec-reset-face face)
+;              (set-face-foreground face (face-attribute 'default :background)))))
 
 (with-eval-after-load 'org-faces
   (set-face-background 'fringe (face-attribute 'default :background))
   (set-face-background 'org-block-begin-line (face-attribute 'default :background)))
+
 
 (custom-set-faces!
   '(org-quote :inherit 'variable-pitch))
@@ -110,7 +113,7 @@
             'line-number
             'line-number-current-line))
 
-(use-package perfect-margin
+(use-package! perfect-margin
   :hook
   (text-mode . perfect-margin-mode)
   :custom
@@ -129,6 +132,8 @@
       (global-set-key (kbd (concat margin "<" multiple "wheel-up>")) 'mwheel-scroll)
       (global-set-key (kbd (concat margin "<" multiple "wheel-down>")) 'mwheel-scroll))))
 
+
+;; (after! lsp-ui (setq fringe-mode 12))
 (setq-default fringes-outside-margins nil)
 (after! git-gutter-fringe
   (when +vc-gutter-default-style

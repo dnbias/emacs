@@ -78,12 +78,13 @@
        vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       syntax              ; tasing you for every semicolon you forget
-       ;;spell             ; tasing you for misspelling mispelling
+       syntax            ; tasing you for every semicolon you forget
+       spell             ; tasing you for misspelling mispelling
        grammar           ; tasing grammar mistake every you make
 
        :tools
        ansible
+       biblio
        debugger            ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker
@@ -128,7 +129,7 @@
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
        ;;(go +lsp)         ; the hipster dialect
-       (haskell +dante)  ; a language that's lazier than I am
+       ;; (haskell +dante)  ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        ;;json              ; At least it ain't XML
@@ -171,7 +172,8 @@
        ;;yaml              ; JSON, but readable
 
        :email
-       (mu4e +gmail)
+       (mu4e +gmail) ;; TODO consider org-msg: https://github.com/jeremy-compostella/org-msg
+
        ;;notmuch
        ;;(wanderlust +gmail)
 

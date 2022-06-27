@@ -38,3 +38,10 @@
 ;;   :custom
 ;;   ;; (rmh-elfeed-org-files '(elfeed-org-file-path))) doesn't work lmao
 ;;   (rmh-elfeed-org-files '("~/Documents/brain/elfeed.org")))
+
+;; Fix emacsclient -c not having icons in the modeline:
+(defun enable-doom-modeline-icons (_frame)
+  (setq doom-modeline-icon t))
+  
+(add-hook 'after-make-frame-functions 
+          #'enable-doom-modeline-icons)
