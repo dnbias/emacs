@@ -45,3 +45,17 @@
   
 (add-hook 'after-make-frame-functions 
           #'enable-doom-modeline-icons)
+
+;; emacsclient is annoying with all the buffers around
+(defun my-kill-buffer-and-frame ()
+  "kill the current buffer and the current frame"
+  (interactive)
+  (when (y-or-n-p "Are you sure you wish to delete the current frame?")
+    (kill-buffer)
+    (delete-frame)))
+(map! :leader :desc "Just close buffer and frame please" "Q" 'my-kill-buffer-and-frame)
+
+;; frames all around me
+;; from https://github.com/doomemacs/doomemacs/issues/5876
+(after! persp-mode
+  (setq persp-emacsclient-init-frame-behaviour-override "main"))

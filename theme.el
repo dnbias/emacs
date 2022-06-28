@@ -25,7 +25,7 @@
       ;; doom-variable-pitch-font (font-spec :family "SF Pro" :weight 'regular  :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Roboto" :weight 'regular  :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Noto Sans" :weight 'light  :size 18)
-      doom-unicode-font (font-spec :family "JuliaMono")
+      doom-unicode-font (font-spec :family "Fira Code")
       ;;doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light)
       )
 
@@ -133,7 +133,6 @@
       (global-set-key (kbd (concat margin "<" multiple "wheel-down>")) 'mwheel-scroll))))
 
 
-;; (after! lsp-ui (setq fringe-mode 12))
 (setq-default fringes-outside-margins nil)
 (after! git-gutter-fringe
   (when +vc-gutter-default-style

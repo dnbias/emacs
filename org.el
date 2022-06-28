@@ -3,7 +3,7 @@
 (setq org-directory "~/Documents/brain/"
       org-roam-directory (expand-file-name "roam/" org-directory))
 (defvar-local journal-file-path (expand-file-name "journal.org" org-roam-directory))
-;; (defvar-local TBR-file-path (expand-file-name "TBR.org" org-roam-directory))
+(defvar-local inbox-file-path (expand-file-name "inbox.org" org-directory))
 
 (after! org
   (setq org-todo-keywords
@@ -74,11 +74,9 @@
 
 (after! org
   (setq org-capture-templates
-  '(("t" "Todo" entry (file+headline todo-file-path "Tasks")
+  '(("t" "Todo" entry (file+headline inbox-file-path "Tasks")
      "\n* TODO %?  %^G \nSCHEDULED: %^t\n  %U")
-    ("r" "To Be Read" entry (file "~/Documents/Dropbox/Org/roam/Letture.org")
-     "\n* TBR %?  %^G \n%U")
-    ("j" "Bullet Journal" entry (file+olp+datetree journal-file-path)
+    ("j" "journal" entry (file+olp+datetree (expand-file-name "other/journal.org" org-directory))
      "** %<%H:%M> %?\n")
      "")))
 

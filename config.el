@@ -11,5 +11,5 @@
 (load! "nov")
 (load! "development")
 (load! "deft")
-(load! "misc")
-;; (load! "biblio")
+(load! "stuff")
+;; (load! "biblio") TODO
