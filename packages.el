@@ -37,3 +37,5 @@
 (package! eradio)
 (package! perfect-margin)
 (package! vuiet)
+(package! edit-server)
+(package! centered-cursor-mode)

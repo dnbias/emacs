@@ -20,6 +20,7 @@
 
 (setq doom-font (font-spec :family "agave" :size 17)
       doom-big-font (font-spec :family "agave" :size 25)
+      ;; doom-variable-pitch-font (font-spec :family "iA Writer Duospace" :size 16)
       doom-variable-pitch-font (font-spec :family "Fira Sans" :weight 'light  :size 16)
       ;; doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :weight 'light  :size 16)
       ;; doom-variable-pitch-font (font-spec :family "SF Pro" :weight 'regular  :size 17)
@@ -44,17 +45,17 @@
 (load! "fancy-phrases")
 (setq fancy-splash-image "~/.config/doom/misc/splash-images/emacs-e.svg")
 
-;; change mode-line color by evil state
-(lexical-let ((default-color (cons (face-background 'mode-line)
-                                   (face-foreground 'mode-line))))
-  (add-hook 'post-command-hook
-            (lambda ()
-              (let ((color (cond ((minibufferp) default-color)
-                                 ((evil-insert-state-p) '("#e80000" . "#ffffff"))
-                                 ((evil-emacs-state-p)  '("#444488" . "#ffffff"))
-                                 (t default-color))))
-                (set-face-background 'mode-line (car color))
-                (set-face-foreground 'mode-line (cdr color))))))
+;; ;; change mode-line color by evil state
+;; (lexical-let ((default-color (cons (face-background 'mode-line)
+;;                                    (face-foreground 'mode-line))))
+;;   (add-hook 'post-command-hook
+;;             (lambda ()
+;;               (let ((color (cond ((minibufferp) default-color)
+;;                                  ((evil-insert-state-p) '("#e80000" . "#ffffff"))
+;;                                  ((evil-emacs-state-p)  '("#444488" . "#ffffff"))
+;;                                  (t default-color))))
+;;                 (set-face-background 'mode-line (car color))
+;;                 (set-face-foreground 'mode-line (cdr color))))))
 
 (add-hook 'lisp-mode-hook 'my-buffer-face-mode-variable)
 ;(add-hook 'after-make-frame-functions
@@ -68,10 +69,13 @@
 ;              (face-spec-reset-face face)
 ;              (set-face-foreground face (face-attribute 'default :background)))))
 
-(with-eval-after-load 'org-faces
+
+(defun my/set-backgrounds()
+  (set-face-background 'minibuffer-prompt (face-attribute 'default :background))
   (set-face-background 'fringe (face-attribute 'default :background))
   (set-face-background 'org-block-begin-line (face-attribute 'default :background)))
 
+(with-eval-after-load 'org-faces (my/set-backgrounds))
 
 (custom-set-faces!
   '(org-quote :inherit 'variable-pitch))
@@ -88,12 +92,6 @@
                       :size 20)
   :config
   (pushnew! mixed-pitch-fixed-pitch-faces
-            ;; 'org-document-title
-            ;; 'org-level-1
-            ;; 'org-level-2
-            ;; 'org-level-3
-            ;; 'org-level-4
-            ;; 'org-level-5
             'org-date
             'org-special-keyword
             'org-property-value
@@ -115,11 +113,11 @@
 
 (use-package! perfect-margin
   :hook
-  (text-mode . perfect-margin-mode)
+  (prog-mode . perfect-margin-mode)
   :custom
   ;; enable perfect-mode
-  (perfect-margin-mode 1)
-  (perfect-margin-visible-width 128)
+  ;; (perfect-margin-mode 1)
+  (perfect-margin-visible-width 140)
   (perfect-margin-hide-fringes nil)
   (fringes-outside-margins nil)
   ;; (perfect-margin-ignore-filters nil)
@@ -132,8 +130,17 @@
       (global-set-key (kbd (concat margin "<" multiple "wheel-up>")) 'mwheel-scroll)
       (global-set-key (kbd (concat margin "<" multiple "wheel-down>")) 'mwheel-scroll))))
 
-
 (setq-default fringes-outside-margins nil)
 (after! git-gutter-fringe
   (when +vc-gutter-default-style
     (setq-default fringes-outside-margins nil)))
+
+(use-package! olivetti
+  :hook
+  (org-mode . #'my/set-backgrounds)
+  (org-mode . olivetti-mode)
+  :config
+  (olivetti-set-width 69)
+  (set-fringe-style 8)
+  (hide-mode-line-mode)
+  (setq line-spacing 5))

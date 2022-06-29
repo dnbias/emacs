@@ -14,6 +14,7 @@
 (setq org-superstar-todo-bullet-alist '("❏"))
 (setq org-modern-star '("" "" "")
       org-modern-hide-stars t)
+
 (use-package org
   :bind
   ("C-c r" . org-roam-node-find)
@@ -23,9 +24,11 @@
   (org-mode . global-org-modern-mode)
   (org-mode . (lambda()(org-num-mode 1)))
   (org-mode . (lambda()(display-line-numbers-mode -1)))
+  (org-mode . (lambda()(perfect-margin-mode -1)))
   (org-mode . (lambda()(org-indent-mode -1)))
+  (org-mode . (lambda()(set-fringe-style nil)))
   :custom
-  (line-spacing 0))
+  (line-spacing 4))
 
 (let* ((variable-tuple '(:font "SF Pro"))
        (base-font-color     (face-foreground 'default nil 'default))
