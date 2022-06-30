@@ -12,4 +12,5 @@
 (load! "development")
 (load! "deft")
 (load! "stuff")
+(load! "spellcheck")
 ;; (load! "biblio") TODO

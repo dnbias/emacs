@@ -135,7 +135,7 @@
   (when +vc-gutter-default-style
     (setq-default fringes-outside-margins nil)))
 
-(use-package! olivetti
+(use-package! olivetti-mode
   :hook
   (org-mode . #'my/set-backgrounds)
   (org-mode . olivetti-mode)
