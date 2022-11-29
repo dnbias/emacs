@@ -1,9 +1,10 @@
 ;;; org.el -*- lexical-binding: t; -*-
 
 (setq org-directory "~/Documents/brain/"
-      org-roam-directory (expand-file-name "roam/" org-directory))
-(defvar-local journal-file-path (expand-file-name "journal.org" org-roam-directory))
-(defvar-local inbox-file-path (expand-file-name "inbox.org" org-directory))
+      org-roam-directory (expand-file-name "roam/" org-directory)
+      org-roam-dailies-directory (expand-file-name "other/journal/" org-directory))
+(defvar-local journal-file-path (expand-file-name "journal.org" org-roam-dailies-directory))
+(defvar-local inbox-file-path (expand-file-name "other/inbox.org" org-directory))
 
 (after! org
   (setq org-todo-keywords
@@ -36,7 +37,7 @@
 
   (custom-theme-set-faces
    'user
-   `(org-block ((t (:background (face-attribute 'default :background)))))
+   ;; `(org-block ((t (:background (face-attribute 'default :background)))))
    `(org-level-8 ((t (,@headline ,@variable-tuple))))
    `(org-level-7 ((t (,@headline ,@variable-tuple))))
    `(org-level-6 ((t (,@headline ,@variable-tuple))))
@@ -79,7 +80,7 @@
   (setq org-capture-templates
   '(("t" "Todo" entry (file+headline inbox-file-path "Tasks")
      "\n* TODO %?  %^G \nSCHEDULED: %^t\n  %U")
-    ("j" "journal" entry (file+olp+datetree (expand-file-name "other/journal.org" org-directory))
+    ("j" "journal" entry (file+olp+datetree journal-file-path)
      "** %<%H:%M> %?\n")
      "")))
 

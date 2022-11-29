@@ -13,4 +13,5 @@
 (load! "deft")
 (load! "stuff")
 (load! "spellcheck")
+(load! "latex")
 ;; (load! "biblio") TODO

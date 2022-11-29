@@ -112,8 +112,8 @@
             'line-number-current-line))
 
 (use-package! perfect-margin
-  :hook
-  (prog-mode . perfect-margin-mode)
+  ;; :hook
+  ;; (prog-mode . perfect-margin-mode)
   :custom
   ;; enable perfect-mode
   ;; (perfect-margin-mode 1)
@@ -131,9 +131,9 @@
       (global-set-key (kbd (concat margin "<" multiple "wheel-down>")) 'mwheel-scroll))))
 
 (setq-default fringes-outside-margins nil)
-(after! git-gutter-fringe
-  (when +vc-gutter-default-style
-    (setq-default fringes-outside-margins nil)))
+;; (after! git-gutter-fringe
+;;   (when +vc-gutter-default-style ;; undefined
+;;     (setq-default fringes-outside-margins nil)))
 
 (use-package! olivetti-mode
   :hook
