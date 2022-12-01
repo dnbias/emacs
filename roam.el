@@ -1,4 +1,5 @@
 ;;; roam.el -*- lexical-binding: t; -*-
+(setq book-note-template (expand-file-name "template/BookNote.org" org-directory))
 
 (after! org-roam
   ;; Offer completion for #tags and @areas separately from notes.
@@ -36,33 +37,38 @@
                '(org-roam-unlinked-references-section . hide))
   :custom
   (org-roam-completion-everywhere t)
+  (org-roam-dailies-capture-templates
+  '(("d" "default" entry
+     "* %<%H:%M>\n%?"
+     :target (file+head "%<%Y-%m-%d>.org"
+                        "#+title: %<%Y-%m-%d>\n"))))
   (org-roam-capture-templates
   '(("d" "default" plain
      "%?"
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("b" "book note" plain
-     (file (expand-file-name "templates/BookNote.org" org-directory))
+     (file "/home/dnbias/Documents/brain/templates/BookNote.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("a" "author" plain
-     (file (expand-file-name "templates/Author.org" org-directory))
+     (file "/home/dnbias/Documents/brain/templates/Author.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("v" "video note" plain
-     (file (expand-file-name "templates/VideoNote.org" org-directory))
+     (file "/home/dnbias/Documents/brain/templates/VideoNote.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("c" "podcast note" plain
-     (file (expand-file-name "templates/PodcastNote.org" org-directory))
+     (file "/home/dnbias/Documents/brain/templates/PodcastNote.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("n" "article note" plain
-     (file (expand-file-name "templates/ArticleNote.org" org-directory))
+     (file "/home/dnbias/Documents/brain/templates/ArticleNote.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("p" "project" plain
-     (file (expand-file-name "templates/Project.org" org-directory))
+     (file "/home/dnbias/Documents/brain/templates/Project.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     )
