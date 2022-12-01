@@ -3,7 +3,7 @@
 (setq display-line-numbers-type t)
 (setq which-key-idle-delay 0.3)
 ;;(setq-default cursor-type '(hbar . 1))
-(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
+;;(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
 
 (defun custom-modeline-mode-icon ()
   (format " %s"

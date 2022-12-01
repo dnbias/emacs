@@ -41,8 +41,6 @@
      "%?"
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
-    ("j" "journal" entry (file+olp+datetree (expand-file-name "other/journal.org" org-directory))
-     "** %<%H:%M> %?\n")
     ("b" "book note" plain
      (file (expand-file-name "templates/BookNote.org" org-directory))
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")

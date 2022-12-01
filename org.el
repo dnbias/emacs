@@ -79,9 +79,9 @@
   (setq org-capture-templates
   '(("t" "Todo" entry (file+headline inbox-file-path "Tasks")
      "\n* TODO %?  %^G \nSCHEDULED: %^t\n  %U")
-    ("j" "journal" entry (file+olp+datetree (expand-file-name "other/journal.org" org-directory))
+    ("j" "journal" entry (file+olp+datetree (expand-file-name "/journal.org" org-roam-directory))
      "** %<%H:%M> %?\n")
-     "")))
+    )))
 
 (defun org-archive-done-tasks ()
   (interactive)
