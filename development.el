@@ -1,5 +1,6 @@
 ;;; development.el -*- lexical-binding: t; -*-
 
+(defvar-local dotfiles-directory "/home/dnbias/.config/")
 (global-subword-mode 1)                           ; Iterate through CamelCase words
 (setq display-line-numbers-type 'relative)
 (use-package vterm
