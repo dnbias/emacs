@@ -140,7 +140,7 @@
   (org-mode . #'my/set-backgrounds)
   (org-mode . olivetti-mode)
   :config
-  (olivetti-set-width 69)
+  (olivetti-set-width 65)
   (set-fringe-style 8)
   (hide-mode-line-mode)
   (setq line-spacing 5))

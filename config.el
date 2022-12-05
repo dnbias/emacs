@@ -5,11 +5,11 @@
 (load! "evil")
 (load! "org")
 (load! "roam")
-(load! "theme")
 (load! "nov")
 (load! "development")
 (load! "deft")
 (load! "stuff")
 (load! "spellcheck")
 (load! "latex")
+(load! "theme")
 ;; (load! "biblio") TODO
