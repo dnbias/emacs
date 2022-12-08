@@ -70,7 +70,7 @@
 ;              (set-face-foreground face (face-attribute 'default :background)))))
 
 
-(defun my/set-backgrounds()
+(defun my/set-backgrounds ()
   (set-face-background 'minibuffer-prompt (face-attribute 'default :background))
   (set-face-background 'fringe (face-attribute 'default :background))
   (set-face-background 'org-block-begin-line (face-attribute 'default :background)))
