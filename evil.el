@@ -41,7 +41,7 @@
         :desc "Find file" "f" #'find-file
         :desc "Recent files" "r" #'consult-recent-file
         :desc "Config dir" "C" #'doom/open-private-config
-        :desc "Open config.org" "c" (cmd! (find-file (expand-file-name "config.el" doom-private-dir)))
+        :desc "Open config.org" "c" (cmd! (find-file (expand-file-name "config.el" doom-user-dir)))
         :desc "Open dotfile" "." (cmd! (doom-project-find-file "~/.config/"))
         :desc "Notes (roam)" "n" #'org-roam-node-find
         :desc "Switch buffer" "b" #'+vertico/switch-workspace-buffer

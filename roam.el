@@ -3,7 +3,7 @@
 
 (after! org-roam
   ;; Offer completion for #tags and @areas separately from notes.
-  (add-to-list 'org-roam-completion-functions #'org-roam-complete-tag-at-point)
+  ;; (add-to-list 'org-roam-completion-functions #'org-roam-complete-tag-at-point)
   ;; Automatically update the slug in the filename when #+title: has changed.
   ;; (add-hook 'org-roam-find-file-hook #'org-roam-update-slug-on-save-h)
   ;; Make the backlinks buffer easier to peruse by folding leaves by default.
