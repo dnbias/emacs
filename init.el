@@ -79,7 +79,9 @@
 
        :checkers
        syntax            ; tasing you for every semicolon you forget
-       spell             ; tasing you for misspelling mispelling
+       (spell            ; tasing you for misspelling mispelling
+                +hunspell
+                +flyspell)
        grammar           ; tasing grammar mistake every you make
 
        :tools
@@ -185,6 +187,5 @@
 
        :config
        ;;literate
-       (setq org-roam-db-location "~/")
        (default +bindings +smartparens))
        ;;(server-start)

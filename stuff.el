@@ -69,4 +69,5 @@
   (doom-project-find-file dotfiles-directory))
 
 (map! :leader :desc "Find file in journal" "f j" 'my/find-file-in-journal
+      :leader :desc "Find file in config" "f t" 'org-roam-dailies-goto-today
       :leader :desc "Find file in config" "f c" 'my/find-file-in-config)
