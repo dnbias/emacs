@@ -1,8 +1,9 @@
 ;;; org.el -*- lexical-binding: t; -*-
 
 (setq org-directory "~/Documents/brain/"
-      org-roam-directory (expand-file-name "roam/" org-directory)
-      org-roam-dailies-directory (expand-file-name "other/journal/" org-directory))
+      ;; file-truename used to follow sym-links
+      org-roam-directory (file-truename (expand-file-name "roam/" org-directory))
+      org-roam-dailies-directory (expand-file-name "journal/" org-roam-directory))
 (defvar-local journal-file-path (expand-file-name "journal.org" org-roam-dailies-directory))
 (defvar-local inbox-file-path (expand-file-name "other/inbox.org" org-directory))
 

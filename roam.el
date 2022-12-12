@@ -9,7 +9,7 @@
   ;; Make the backlinks buffer easier to peruse by folding leaves by default.
   (add-hook 'org-roam-buffer-postrender-functions #'magit-section-show-level-2)
   ;; List dailies and zettels separately in the backlinks buffer.
-  (advice-add #'org-roam-backlinks-section :override #'org-roam-grouped-backlinks-section)
+  ;; (advice-add #'org-roam-backlinks-section :override #'org-roam-grouped-backlinks-section)
   ;; Open in focused buffer, despite popups
   (advice-add #'org-roam-node-visit :around #'+popup-save-a)
   ;; Make sure tags in vertico are sorted by insertion order, instead of
@@ -81,7 +81,7 @@
     (let* ((title (org-roam-node-title node))
            (olp (mapcar (lambda (s) (if (> (length s) 10) (concat (substring s 0 10)  "...") s)) (org-roam-node-olp node)))
            (level (org-roam-node-level node))
-           (filetitle (org-collect-keyword "TITLE" (org-roam-node-file node)))
+           (filetitle (org-roam-get-keyword "TITLE" (org-roam-node-file node)))
            (filetitle-or-name (if filetitle filetitle (file-name-nondirectory (org-roam-node-file node))))
            (shortentitle (if (> (length filetitle-or-name) 20) (concat (substring filetitle-or-name 0 20)  "...") filetitle-or-name))
            (separator (concat " " (all-the-icons-material "chevron_right") " ")))
@@ -176,4 +176,4 @@
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
 
-(org-roam-db-sync)
+(org-roam-db-autosync-mode)
