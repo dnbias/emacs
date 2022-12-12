@@ -16,7 +16,8 @@
   ;; arbitrarily (due to the use of group_concat in the underlying SQL query).
   ;; (advice-add #'org-roam-node-list :filter-return #'org-roam-restore-insertion-order-for-tags-a)
   ;; Add ID, Type, Tags, and Aliases to top of backlinks buffer.
-  (advice-add #'org-roam-buffer-set-header-line-format :after #'org-roam-add-preamble-a))
+  ;; (advice-add #'org-roam-buffer-set-header-line-format :after #'org-roam-add-preamble-a))
+)
 
 (use-package! org-roam
   :after org
@@ -80,7 +81,7 @@
     (let* ((title (org-roam-node-title node))
            (olp (mapcar (lambda (s) (if (> (length s) 10) (concat (substring s 0 10)  "...") s)) (org-roam-node-olp node)))
            (level (org-roam-node-level node))
-           (filetitle (org-roam-get-keyword "TITLE" (org-roam-node-file node)))
+           (filetitle (org-collect-keyword "TITLE" (org-roam-node-file node)))
            (filetitle-or-name (if filetitle filetitle (file-name-nondirectory (org-roam-node-file node))))
            (shortentitle (if (> (length filetitle-or-name) 20) (concat (substring filetitle-or-name 0 20)  "...") filetitle-or-name))
            (separator (concat " " (all-the-icons-material "chevron_right") " ")))
@@ -174,3 +175,5 @@
           org-roam-ui-follow t
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
+
+(org-roam-db-sync)
