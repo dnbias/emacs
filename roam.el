@@ -177,3 +177,5 @@
           org-roam-ui-open-on-start t))
 
 (org-roam-db-autosync-mode)
+;; this makes emacs follow symlinks, at a cost
+(setq find-file-visit-truename t)
