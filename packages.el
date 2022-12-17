@@ -39,3 +39,4 @@
 (package! vuiet)
 (package! edit-server)
 (package! centered-cursor-mode)
+(package! consult-org-roam)

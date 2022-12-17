@@ -7,7 +7,7 @@
 (load! "roam")
 (load! "nov")
 (load! "development")
-(load! "deft")
+;; (load! "deft")
 (load! "stuff")
 (load! "spellcheck")
 (load! "latex")

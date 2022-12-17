@@ -7,16 +7,15 @@
   ;; Automatically update the slug in the filename when #+title: has changed.
   ;; (add-hook 'org-roam-find-file-hook #'org-roam-update-slug-on-save-h)
   ;; Make the backlinks buffer easier to peruse by folding leaves by default.
-  (add-hook 'org-roam-buffer-postrender-functions #'magit-section-show-level-2)
+  (add-hook 'org-roam-buffer-postrender-functions #'magit-section-show-level-3)
   ;; List dailies and zettels separately in the backlinks buffer.
-  ;; (advice-add #'org-roam-backlinks-section :override #'org-roam-grouped-backlinks-section)
+  (advice-add #'org-roam-backlinks-section :override #'org-roam-grouped-backlinks-section)
   ;; Open in focused buffer, despite popups
   (advice-add #'org-roam-node-visit :around #'+popup-save-a)
   ;; Make sure tags in vertico are sorted by insertion order, instead of
   ;; arbitrarily (due to the use of group_concat in the underlying SQL query).
   ;; (advice-add #'org-roam-node-list :filter-return #'org-roam-restore-insertion-order-for-tags-a)
   ;; Add ID, Type, Tags, and Aliases to top of backlinks buffer.
-  ;; (advice-add #'org-roam-buffer-set-header-line-format :after #'org-roam-add-preamble-a))
 )
 
 (use-package! org-roam
@@ -38,6 +37,7 @@
                '(org-roam-unlinked-references-section . hide))
   :custom
   (org-roam-completion-everywhere t)
+  (completion-ignore-case t)
   (org-roam-dailies-capture-templates
   '(("d" "default" entry
      "* %<%H:%M>\n%?"
@@ -178,4 +178,31 @@
 
 (org-roam-db-autosync-mode)
 ;; this makes emacs follow symlinks, at a cost
-(setq find-file-visit-truename t)
+;; (setq find-file-visit-truename t)
+
+(use-package! consult-org-roam
+   :ensure t
+   :after org-roam
+   :init
+   (require 'consult-org-roam)
+   ;; Activate the minor mode
+   (consult-org-roam-mode 1)
+   :custom
+   ;; Use `ripgrep' for searching with `consult-org-roam-search'
+   (consult-org-roam-grep-func #'consult-ripgrep)
+   ;; Configure a custom narrow key for `consult-buffer'
+   (consult-org-roam-buffer-narrow-key ?r)
+   ;; Display org-roam buffers right after non-org-roam buffers
+   ;; in consult-buffer (and not down at the bottom)
+   (consult-org-roam-buffer-after-buffers t)
+   :config
+   ;; Eventually suppress previewing for certain functions
+   (consult-customize
+    consult-org-roam-forward-links
+    :preview-key (kbd "M-."))
+   :bind
+   ;; Define some convenient keybindings as an addition
+   ("C-c n e" . consult-org-roam-file-find)
+   ("C-c n b" . consult-org-roam-backlinks)
+   ("C-c n l" . consult-org-roam-forward-links)
+   ("C-c n r" . consult-org-roam-search))
