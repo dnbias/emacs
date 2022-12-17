@@ -144,4 +144,3 @@
   (hide-mode-line-mode)
   (setq line-spacing 5))
 
-(setq display-line-numbers-type t)
