@@ -1,27 +1,11 @@
 ;;; roam.el -*- lexical-binding: t; -*-
 (setq book-note-template (expand-file-name "template/BookNote.org" org-directory))
 
-(after! org-roam
-  ;; Offer completion for #tags and @areas separately from notes.
-  ;; (add-to-list 'org-roam-completion-functions #'org-roam-complete-tag-at-point)
-  ;; Automatically update the slug in the filename when #+title: has changed.
-  ;; (add-hook 'org-roam-find-file-hook #'org-roam-update-slug-on-save-h)
-  ;; Make the backlinks buffer easier to peruse by folding leaves by default.
-  (add-hook 'org-roam-buffer-postrender-functions #'magit-section-show-level-3)
-  ;; List dailies and zettels separately in the backlinks buffer.
-  (advice-add #'org-roam-backlinks-section :override #'org-roam-grouped-backlinks-section)
-  ;; Open in focused buffer, despite popups
-  (advice-add #'org-roam-node-visit :around #'+popup-save-a)
-  ;; Make sure tags in vertico are sorted by insertion order, instead of
-  ;; arbitrarily (due to the use of group_concat in the underlying SQL query).
-  ;; (advice-add #'org-roam-node-list :filter-return #'org-roam-restore-insertion-order-for-tags-a)
-  ;; Add ID, Type, Tags, and Aliases to top of backlinks buffer.
-)
-
 (use-package! org-roam
   :after org
   :hook
   (org-roam-mode . olivetti-mode)
+  (org-roam-buffer-postrender-functions . #'magit-section-show-level-3)
   :bind
   ("C-M-i" . completion-at-point)
   :init
