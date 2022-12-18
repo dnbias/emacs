@@ -31,7 +31,7 @@
   (org-mode . (lambda()(set-fringe-style nil)))
   (org-mode . (lambda()(git-gutter-mode -1)))
   :custom
-  (line-spacing 4))
+  (line-spacing nil))
 
 (let* ((variable-tuple '(:font "SF Pro"))
        (base-font-color     (face-foreground 'default nil 'default))
