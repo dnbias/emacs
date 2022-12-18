@@ -41,3 +41,4 @@
 (package! centered-cursor-mode)
 (package! consult)
 (package! consult-org-roam)
+(package! orderless)
