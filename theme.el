@@ -1,8 +1,16 @@
 ;;; theme.el -*- lexical-binding: t; -*-
 (setq doom-theme 'doom-wilmersdorf)
 (setq which-key-idle-delay 0.3)
-;;(setq-default cursor-type '(hbar . 1))
+(setq-default cursor-type 'hollow)
 ;;(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
+
+(defun load-doom-wilmersdorf-theme (frame)
+  (select-frame frame)
+  (load-theme 'doom-wilmersdorf t))
+
+(if (daemonp)
+    (add-hook 'after-make-frame-functions #'load-doom-wilmersdorf)
+  (load-theme 'doom-wilmersdorf t))
 
 (defun custom-modeline-mode-icon ()
   (format " %s"
@@ -30,9 +38,9 @@
       ;;doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light)
       )
 
-(custom-set-faces
-  '(mode-line ((t (:family "SF Pro Display" :height 1.0))))
-  '(mode-line-inactive ((t (:family "SF Pro Display" :height 1.0)))))
+;; (custom-set-faces
+;;   '(mode-line ((t (:family "SF Pro Display" :height 1.0))))
+;;   '(mode-line-inactive ((t (:family "SF Pro Display" :height 1.0)))))
 
 (setq doom-fallback-buffer-name "► Doom"
       +doom-dashboard-name "► Doom")
