@@ -4,6 +4,8 @@
 (setq-default cursor-type 'hollow)
 ;;(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
 
+(setq evil-normal-state-cursor '("#819cd6" hollow))
+
 ;; (defun load-doom-wilmersdorf-theme (frame)
 ;;   (select-frame frame)
 ;;   (load-theme 'doom-wilmersdorf t))
@@ -27,9 +29,9 @@
 
 (setq doom-font (font-spec :family "agave" :size 17)
       doom-big-font (font-spec :family "agave" :size 25)
-      doom-variable-pitch-font (font-spec :family "SF Pro Rounded" :size 16 :weight 'light)
+      ;; doom-variable-pitch-font (font-spec :family "" :size 17 :weight 'light)
       ;; doom-variable-pitch-font (font-spec :family "iA Writer Duospace" :size 16)
-      ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :weight 'light  :size 16)
+      doom-variable-pitch-font (font-spec :family "Fira Sans" :weight 'light  :size 16)
       ;; doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :weight 'light  :size 16)
       ;; doom-variable-pitch-font (font-spec :family "SF Pro" :weight 'regular  :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Roboto" :weight 'regular  :size 17)
