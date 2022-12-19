@@ -1,5 +1,20 @@
 ;;; consult.el -*- lexical-binding: t; -*-
 
+(use-package! vertico
+   :custom
+   (vertico-resize t)
+   (vertico-count 8))
+
+(use-package! consult
+   :bind
+   ("M-s r" . consult-ripgrep)
+   ("M-s l" . consult-line)
+   ("M-s f" . consult-file)
+   ("M-s m" . consult-man)
+   ("M-s b" . consult-buffer)
+   ("M-s O" . consult-outline)
+   ("M-s o" . consult-org-heading))
+
 (use-package! consult-org-roam
    :ensure t
    :after org-roam
@@ -22,7 +37,7 @@
     :preview-key (kbd "M-."))
    :bind
    ;; Define some convenient keybindings as an addition
-   ("C-c n e" . consult-org-roam-file-find)
-   ("C-c n b" . consult-org-roam-backlinks)
-   ("C-c n l" . consult-org-roam-forward-links)
-   ("C-c n r" . consult-org-roam-search))
+   ("M-s n f" . consult-org-roam-file-find)
+   ("M-s n b" . consult-org-roam-backlinks)
+   ("M-s n l" . consult-org-roam-forward-links)
+   ("M-s n r" . consult-org-roam-search))

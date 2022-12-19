@@ -18,8 +18,8 @@
   (add-to-list 'company-backends 'company-capf)
   (add-to-list 'company-backends 'company-files)
   (global-set-key (kbd "<tab>") #'company-indent-or-complete-common)
-  (company-idle-delay 0.2) ;; how long to wait until popup
-  (company-minimum-prefix-length 2)
+  (company-idle-delay 0.3) ;; how long to wait until popup
+  (company-minimum-prefix-length 3)
   ;; (company-begin-commands nil) ;; uncomment to disable popup
   :bind
   (:map company-active-map
@@ -121,7 +121,7 @@
 
 (use-package! rainbow-mode)
 
-(setq +zen-text-scale 1.2)
+(setq +zen-text-scale 1.1)
 
 (use-package! sublimity
   :hook

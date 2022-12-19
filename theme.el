@@ -19,8 +19,9 @@
 
 (setq doom-font (font-spec :family "agave" :size 17)
       doom-big-font (font-spec :family "agave" :size 25)
+      doom-variable-pitch-font (font-spec :family "SF Pro Rounded" :size 16 :weight 'light)
       ;; doom-variable-pitch-font (font-spec :family "iA Writer Duospace" :size 16)
-      doom-variable-pitch-font (font-spec :family "Fira Sans" :weight 'light  :size 16)
+      ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :weight 'light  :size 16)
       ;; doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :weight 'light  :size 16)
       ;; doom-variable-pitch-font (font-spec :family "SF Pro" :weight 'regular  :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Roboto" :weight 'regular  :size 17)
@@ -136,11 +137,9 @@
 
 (use-package! olivetti-mode
   :hook
-  (org-mode . #'my/set-backgrounds)
   (org-mode . olivetti-mode)
   :config
   (olivetti-set-width 65)
   (set-fringe-style 8)
-  (hide-mode-line-mode)
-  (setq line-spacing 5))
-
+  (git-gutter-mode nil)
+  (my/set-backgrounds))

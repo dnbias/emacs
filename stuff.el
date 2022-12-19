@@ -3,7 +3,6 @@
 (defvar-local elfeed-org-file-path (expand-file-name "elfeed.org" org-directory))
 
 (use-package! eradio
-  :ensure t
   :custom
   (eradio-player '("mpv" "--no-video" "--no-terminal")))
 
