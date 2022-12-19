@@ -16,7 +16,6 @@
    ("M-s o" . consult-org-heading))
 
 (use-package! consult-org-roam
-   :ensure t
    :after org-roam
    :init
    (require 'consult-org-roam)
