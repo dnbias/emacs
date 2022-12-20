@@ -2,7 +2,7 @@
 (setq doom-theme 'doom-wilmersdorf)
 (setq which-key-idle-delay 0.3)
 (setq-default cursor-type 'hollow)
-;;(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
+(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
 (setq evil-normal-state-cursor '("#819cd6" hollow))
 
@@ -29,12 +29,12 @@
 
 (setq doom-font (font-spec :family "agave" :size 17)
       doom-big-font (font-spec :family "agave" :size 25)
-      doom-variable-pitch-font (font-spec :family "SF Pro Rounded" :weight 'light :size 17)
+      ;; doom-variable-pitch-font (font-spec :family "SF Pro Display" :weight 'light :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Bitter" :size 17)
       ;; doom-variable-pitch-font (font-spec :family "iA Writer Duospace" :size 16)
       ;; doom-variable-pitch-font (font-spec :family "iM Writing Duospace" :size 16)
       ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :weight 'light  :size 16)
-      ;; doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :weight 'light  :size 16)
+      doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :weight 'light  :size 16)
       ;; doom-variable-pitch-font (font-spec :family "SF Pro" :weight 'regular  :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Roboto" :weight 'regular  :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Noto Sans" :weight 'light  :size 18)
