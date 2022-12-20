@@ -34,7 +34,7 @@
       ;; doom-variable-pitch-font (font-spec :family "iA Writer Duospace" :size 16)
       ;; doom-variable-pitch-font (font-spec :family "iM Writing Duospace" :size 16)
       ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :weight 'light  :size 16)
-      doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :weight 'light  :size 16)
+      doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 16)
       ;; doom-variable-pitch-font (font-spec :family "SF Pro" :weight 'regular  :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Roboto" :weight 'regular  :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Noto Sans" :weight 'light  :size 18)
