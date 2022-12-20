@@ -150,6 +150,7 @@
 (use-package! olivetti-mode
   :hook
   (org-mode . olivetti-mode)
+  (elfeed-show-entry . org-mode)
   :config
   (olivetti-set-width 65)
   (set-fringe-style 8)
