@@ -3,7 +3,6 @@
        user-mail-address "mail@dnbias.dev")
 
 (load! "evil")
-(load! "consult")
 (load! "org")
 (load! "roam")
 (load! "nov")
@@ -11,5 +10,6 @@
 (load! "development")
 (load! "spellcheck")
 (load! "stuff")
+(load! "consult")
 (load! "theme")
 ;; (load! "biblio") TODO
