@@ -1,9 +1,7 @@
 ;;; consult.el -*- lexical-binding: t; -*-
 
-(use-package! vertico
-   :custom
-   (vertico-resize t)
-   (vertico-count 8))
+(setq! vertico-resize t
+       vertico-count 8)
 
 (use-package! consult
    :bind

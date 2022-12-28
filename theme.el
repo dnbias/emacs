@@ -151,8 +151,14 @@
   :hook
   (org-mode . olivetti-mode)
   (elfeed-show-entry . org-mode)
+  :custom
+  (olivetti-body-width 65)
   :config
   (olivetti-set-width 65)
   (set-fringe-style 8)
-  (git-gutter-mode nil)
+  (git-gutter-mode -1)
   (my/set-backgrounds))
+
+(setq! git-gutter:visual-line t
+       git-gutter:added-sign "|"
+       git-gutter:added-sign "|")
