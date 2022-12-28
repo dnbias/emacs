@@ -1,9 +1,9 @@
 ;;; consult.el -*- lexical-binding: t; -*-
 
-(setq! vertico-resize t
-       vertico-count 8)
-
 (use-package! consult
+   :custom
+   (vertico-resize t)
+   (vertico-count 8)
    :bind
    ("M-s r" . consult-ripgrep)
    ("M-s l" . consult-line)
