@@ -1,9 +1,7 @@
 ;;; theme.el -*- lexical-binding: t; -*-
-(setq doom-theme 'doom-wilmersdorf)
+(setq doom-theme 'doom-meltbus)
 (setq which-key-idle-delay 0.3)
-(setq-default cursor-type 'hollow)
-;; (set-face-background 'default "#111116")
-(add-to-list 'default-frame-alist '(alpha . 98))
+(add-to-list 'default-frame-alist '(alpha . 80))
 
 (setq evil-normal-state-cursor '("#819cd6" hollow))
 
@@ -171,3 +169,5 @@
 (setq! git-gutter:visual-line t
        git-gutter:added-sign "|"
        git-gutter:added-sign "|")
+
+(my/set-backgrounds)
