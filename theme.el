@@ -2,9 +2,19 @@
 (setq doom-theme 'doom-wilmersdorf)
 (setq which-key-idle-delay 0.3)
 (setq-default cursor-type 'hollow)
-(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+;; (set-face-background 'default "#111116")
+(add-to-list 'default-frame-alist '(alpha . 98))
 
 (setq evil-normal-state-cursor '("#819cd6" hollow))
+
+(defun kb/toggle-window-transparency ()
+  "Toggle transparency."
+  (interactive)
+  (let ((alpha-transparency 75))
+    (pcase (frame-parameter nil 'alpha-background)
+      (alpha-transparency (set-frame-parameter nil 'alpha-background 100))
+      (t (set-frame-parameter nil 'alpha-background alpha-transparency)))))
+
 
 ;; (defun load-doom-wilmersdorf-theme (frame)
 ;;   (select-frame frame)
@@ -20,8 +30,7 @@
                 'help-echo (format "Major-mode: `%s`" major-mode)
                 'face `(:height 1.0 :family ,(all-the-icons-icon-family-for-buffer)))))
 
-(setq doom-modeline-icon (display-graphic-p))
-(setq doom-modeline-major-mode-icon t)
+(setq doom-modeline-icon (display-graphic-p))(setq doom-modeline-major-mode-icon t)
 (setq doom-modeline-major-mode-color-icon t)
 (setq doom-modeline-buffer-encoding nil)
 (setq doom-modeline-height 15)
