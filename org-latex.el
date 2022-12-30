@@ -1,8 +1,5 @@
 ;;; org-latex.el -*- lexical-binding: t; -*-
 
-(use-package! org-fragtog
-  :hook (org-mode . org-fragtog-mode))
-
 ;; thank you Tecosaur <3
 (setq org-format-latex-header "\\documentclass{article}
 \\usepackage[usenames]{xcolor}
@@ -30,8 +27,8 @@
 \\usepackage{arev}
 ")
 ;; TODO why does this not work?
-;; (setq org-format-latex-options
-;;       (plist-put org-format-latex-options :background "Transparent"))
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :background "Transparent"))
 
 (defun scimax-org-latex-fragment-justify (justification)
   "Justify the latex fragment at point with JUSTIFICATION.

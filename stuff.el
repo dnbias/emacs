@@ -95,3 +95,7 @@
                                       ("-" . "+")
                                       ("*" . "+")
                                       ("1." . "a.")))
+
+;; weird org-mode bug
+;; https://github.com/nobiot/org-transclusion/issues/105
+(setq warning-suppress-types (append warning-suppress-types '((org-element-cache))))
