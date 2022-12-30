@@ -20,7 +20,6 @@
 (package! justify-kp
   :recipe (:host github
            :repo "Fuco1/justify-kp"))
-(package! visual-fill-column)
 (package! mixed-pitch)
 (package! olivetti)
 (package! org-ol-tree
@@ -42,3 +41,5 @@
 (package! consult)
 (package! consult-org-roam)
 (package! orderless)
+(package! info-colors :pin "47ee73cc19b1049eef32c9f3e264ea7ef2aaf8a5")
+(package! org-fragtog :pin "680606189d5d28039e6f9301b55ec80517a24005")

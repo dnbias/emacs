@@ -65,7 +65,7 @@
  ;; Org styling, hide markup etc.
  org-hide-emphasis-markers t
  org-pretty-entities t
- org-ellipsis "…"
+ org-ellipsis " ▾ "
 
  ;; Agenda styling
  org-agenda-tags-column 0
@@ -103,3 +103,6 @@
   ;; for proper first-time setup, `org-appear--set-elements'
   ;; needs to be run after other hooks have acted.
   (run-at-time nil nil #'org-appear--set-elements))
+
+(load! "ligatures")
+(load! "org-latex")

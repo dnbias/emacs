@@ -1,18 +1,39 @@
 ;;; theme.el -*- lexical-binding: t; -*-
-(setq doom-theme 'doom-meltbus)
 (setq which-key-idle-delay 0.3)
+
+(setq doom-theme 'doom-meltbus)
 (add-to-list 'default-frame-alist '(alpha . 80))
+(custom-set-faces!
+  '(default :background "#111116"))
+(custom-set-faces!
+  `(orderless-match-face-0 :foreground ,(doom-color 'bg))
+  `(orderless-match-face-1 :foreground ,(doom-color 'bg))
+  `(orderless-match-face-2 :foreground ,(doom-color 'bg))
+  `(orderless-match-face-3 :foreground ,(doom-color 'bg))
+  `(minibuffer-prompt
+    :foreground ,(doom-color 'fg)
+    :background ,(face-background 'default))
+  `(vertico-current :background ,(doom-darken 'bg 0.9)))
 
-(setq evil-normal-state-cursor '("#819cd6" hollow))
+(after! org-mode
+  (custom-set-faces!
+    `(fringe :background ,(face-background 'default))
+    `(org-block-begin-line :background ,(face-background 'default))))
 
-(defun kb/toggle-window-transparency ()
-  "Toggle transparency."
-  (interactive)
-  (let ((alpha-transparency 75))
-    (pcase (frame-parameter nil 'alpha-background)
-      (alpha-transparency (set-frame-parameter nil 'alpha-background 100))
-      (t (set-frame-parameter nil 'alpha-background alpha-transparency)))))
+(defun my/set-backgrounds ()
+  (set-face-background 'minibuffer-prompt (face-attribute 'default :background))
+  (set-face-background 'fringe (face-attribute 'default :background))
+  (set-face-background 'org-block-begin-line (face-attribute 'default :background)))
 
+;; (setq evil-normal-state-cursor '("#819cd6" hollow))
+
+;; (defun kb/toggle-window-transparency ()
+;;   "Toggle transparency."
+;;   (interactive)
+;;   (let ((alpha-transparency 75))
+;;     (pcase (frame-parameter nil 'alpha-background)
+;;       (alpha-transparency (set-frame-parameter nil 'alpha-background 100))
+;;       (t (set-frame-parameter nil 'alpha-background alpha-transparency)))))
 
 ;; (defun load-doom-wilmersdorf-theme (frame)
 ;;   (select-frame frame)
@@ -36,7 +57,8 @@
 
 (setq doom-font (font-spec :family "agave" :size 17)
       doom-big-font (font-spec :family "agave" :size 25)
-      doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 16)
+      ;; doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 16)
+      doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 16)
       ;; doom-variable-pitch-font (font-spec :family "Bitter" :size 17)
       ;; doom-variable-pitch-font (font-spec :family "iA Writer Duospace" :size 16)
       ;; doom-variable-pitch-font (font-spec :family "iM Writing Duospace" :size 16)
@@ -88,11 +110,6 @@
 ;              (face-spec-reset-face face)
 ;              (set-face-foreground face (face-attribute 'default :background)))))
 
-
-(defun my/set-backgrounds ()
-  (set-face-background 'minibuffer-prompt (face-attribute 'default :background))
-  (set-face-background 'fringe (face-attribute 'default :background))
-  (set-face-background 'org-block-begin-line (face-attribute 'default :background)))
 
 (with-eval-after-load 'org-faces (my/set-backgrounds))
 
@@ -163,11 +180,13 @@
   :config
   (olivetti-set-width 65)
   (set-fringe-style 8)
-  (git-gutter-mode -1)
-  (my/set-backgrounds))
+  (git-gutter-mode -1))
 
-(setq! git-gutter:visual-line t
-       git-gutter:added-sign "|"
-       git-gutter:added-sign "|")
+(setq git-gutter:visual-line t)
+;;        git-gutter:added-sign "|"
+;;        git-gutter:added-sign "|")
 
-(my/set-backgrounds)
+(use-package! info-colors
+  :commands (info-colors-fontify-node))
+
+(add-hook 'Info-selection-hook 'info-colors-fontify-node)

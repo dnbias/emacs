@@ -22,6 +22,8 @@
       "t"       #'evil-next-line
       "n"       #'evil-previous-line
       "s"       #'evil-forward-char
+      "c"       #'evil-find-char-to
+      "C"       #'evil-find-char-to-backward
       )
 (map! :after evil
       :map evil-normal-state-map

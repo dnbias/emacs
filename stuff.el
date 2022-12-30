@@ -70,3 +70,28 @@
 (map! :leader :desc "Find file in journal" "f j" 'my/find-file-in-journal
       :leader :desc "Find file in config" "f t" 'org-roam-dailies-goto-today
       :leader :desc "Find file in config" "f c" 'my/find-file-in-config)
+
+(defadvice! prompt-for-buffer (&rest _)
+  :after '(evil-window-split evil-window-vsplit)
+  (consult-buffer))
+
+
+;; from Tecosaur's config:
+;; invisible spaces for niceties in org-mode
+(map! :map org-mode-map
+      :nie "M-SPC M-SPC" (cmd! (insert "\u200B")))
+;; exclude them when exporting
+(defun +org-export-remove-zero-width-space (text _backend _info)
+  "Remove zero width spaces from TEXT."
+  (unless (org-export-derived-backend-p 'org)
+    (replace-regexp-in-string "\u200B" "" text)))
+
+(after! ox
+  (add-to-list 'org-export-filter-final-output-functions #'+org-export-remove-zero-width-space t))
+
+;; bullets change with depth
+(setq org-list-demote-modify-bullet '(
+                                      ("+" . "-")
+                                      ("-" . "+")
+                                      ("*" . "+")
+                                      ("1." . "a.")))
