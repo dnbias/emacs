@@ -23,7 +23,8 @@
   (ispell-hunspell-add-multi-dic "italiano,en_GB,en_US")
   ;; For saving words to the personal dictionary, don't infer it from
   ;; the locale, otherwise it would save to ~/.hunspell_de_DE.
-  (setq ispell-personal-dictionary "~/.config/hunspell_personal"))
+  (setq ispell-personal-dictionary
+        (expand-file-name "hunspell_personal" org-directory)))
 
 ;; The personal dictionary file has to exist, otherwise hunspell will
 ;; silently not use it.
