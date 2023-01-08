@@ -111,3 +111,8 @@
 
 (load! "ligatures")
 ;; (load! "org-latex")
+(after! org
+  (setq org-format-latex-options
+        (plist-put org-format-latex-options :background "Transparent"))
+  (setq org-format-latex-options
+      (plist-put org-format-latex-options :scale 1)))

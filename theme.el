@@ -1,8 +1,10 @@
 ;;; theme.el -*- lexical-binding: t; -*-
 (setq which-key-idle-delay 0.3)
 
+(set-frame-parameter (selected-frame) 'alpha-background 85)
+(add-to-list 'default-frame-alist '(alpha-background . 85))
+
 (setq doom-theme 'doom-meltbus)
-(add-to-list 'default-frame-alist '(alpha . 80))
 (custom-set-faces!
   '(default :background "#111116"))
 (custom-set-faces!
@@ -55,7 +57,7 @@
 (setq doom-modeline-height 15)
 
 
-(setq doom-font (font-spec :family "agave" :size 17)
+(setq doom-font (font-spec :family "agave" :size 16)
       doom-big-font (font-spec :family "agave" :size 25)
       ;; doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 16)
       doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 16)
