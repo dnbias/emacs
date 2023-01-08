@@ -3,7 +3,6 @@
 (setq org-directory "~/Documents/brain/"
       ;; file-truename used to follow sym-links
       org-roam-directory (file-truename (expand-file-name "roam/" org-directory))
-      ispell-personal-dictionary (expand-file-name "hunspell_personal" org-directory)
       org-roam-dailies-directory "journal/")
 
 (defvar-local journal-file-path (expand-file-name "journal.org" org-roam-dailies-directory))
