@@ -3,6 +3,7 @@
 
 (set-frame-parameter (selected-frame) 'alpha-background 85)
 (add-to-list 'default-frame-alist '(alpha-background . 85))
+(add-to-list 'default-frame-alist '(alpha . 95))
 
 (setq doom-theme 'doom-meltbus)
 (custom-set-faces!
@@ -28,14 +29,6 @@
   (set-face-background 'org-block-begin-line (face-attribute 'default :background)))
 
 ;; (setq evil-normal-state-cursor '("#819cd6" hollow))
-
-;; (defun kb/toggle-window-transparency ()
-;;   "Toggle transparency."
-;;   (interactive)
-;;   (let ((alpha-transparency 75))
-;;     (pcase (frame-parameter nil 'alpha-background)
-;;       (alpha-transparency (set-frame-parameter nil 'alpha-background 100))
-;;       (t (set-frame-parameter nil 'alpha-background alpha-transparency)))))
 
 ;; (defun load-doom-wilmersdorf-theme (frame)
 ;;   (select-frame frame)
