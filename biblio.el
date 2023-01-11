@@ -32,12 +32,15 @@
   ;; Melpa for download. Alternatively, you can set the `:straight' keyword to
   ;; nil in those package(s) use-package declaration.
   ;; :straight (citar :type git :host github :repo "emacs-citar/citar" :includes (citar-org))
+  :bind
+  (:map org-mode-map :package org ("C-c b" . #'org-cite-insert))
   :custom
+  (org-cite-global-bibliography '("~/Documents/bib/references.bib"))
   (org-cite-insert-processor 'citar)
   (org-cite-follow-processor 'citar)
   (org-cite-activate-processor 'citar)
-  :custom
-  (citar-notes-paths (list kb/roam-dir)) ; List of directories for reference nodes
+  (citar-bibliography org-cite-global-bibliography)
+  (citar-notes-paths (list org-roam-directory)) ; List of directories for reference nodes
   (citar-open-note-function 'orb-citar-edit-note) ; Open notes in `org-roam'
   (citar-templates
    '((main . "${author editor:30}   ${date year issued:4}    ${title:110}")
@@ -58,29 +61,14 @@
   :init
   ;; Here we define a face to dim non 'active' icons, but preserve alignment.
   ;; Change to your own theme's background(s)
-  (defface kb/citar-icon-dim
-    ;; Change these colors to match your theme. Using something like
-    ;; `face-attribute' to get the value of a particular attribute of a face might
-    ;; be more convenient.
-    '((((background dark)) :foreground (face-attribute 'default :foreground))
-      (((background light)) :foreground (face-attribute 'default :foreground)))
-    "Face for having icons' color be identical to the theme
-  background when \"not shown\"."))
+  ;; (defface kb/citar-icon-dim
+  ;;   ;; Change these colors to match your theme. Using something like
+  ;;   ;; `face-attribute' to get the value of a particular attribute of a face might
+  ;;   ;; be more convenient.
+  ;;   '((((background dark)) :foreground (face-attribute 'default :foreground))
+  ;;     (((background light)) :foreground (face-attribute 'default :foreground)))
+  ;;   "Face for having icons' color be identical to the theme
+  ;; background when \"not shown\"."))
+  )
 
 (map! :desc "Citar-capture" "C-c c" #'kb/org-roam-node-from-cite)
-
-;; org-roam-bibtex stuff
-;; https://github.com/org-roam/org-roam-bibtex
-(package! org-roam-bibtex
-  :recipe (:host github :repo "org-roam/org-roam-bibtex"))
-
-;; When using org-roam via the `+roam` flag
-(unpin! org-roam)
-
-;; When using bibtex-completion via the `biblio` module
-(unpin! bibtex-completion helm-bibtex ivy-bibtex)
-
-(use-package! org-roam-bibtex
-  :after org-roam
-  :config
-  (require 'org-ref)) ; optional: if using Org-ref v2 or v3 citation links

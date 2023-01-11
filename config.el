@@ -12,4 +12,4 @@
 (load! "stuff")
 (load! "consult")
 (load! "theme")
-;; (load! "biblio") TODO
+(load! "biblio")

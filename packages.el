@@ -6,10 +6,12 @@
   :recipe
   (:host github
    :repo "ymarco/auto-activating-snippets"))
-(package! LaTeX-auto-activating-snippets
-  :recipe
-  (:host github
-   :repo "tecosaur/LaTeX-auto-activating-snippets"))
+
+;; (package! LaTeX-auto-activating-snippets
+;;   :recipe
+;;   (:host github
+;;    :repo "tecosaur/LaTeX-auto-activating-snippets"))
+
 (package! company-org-roam
   :recipe (:host github :repo "jethrokuan/company-org-roam"))
 (package! org-download)
@@ -43,3 +45,12 @@
 (package! orderless)
 (package! info-colors :pin "47ee73cc19b1049eef32c9f3e264ea7ef2aaf8a5")
 (package! org-fragtog :pin "680606189d5d28039e6f9301b55ec80517a24005")
+
+;; org-roam-bibtex stuff
+;; https://github.com/org-roam/org-roam-bibtex
+(package! org-roam-bibtex
+  :recipe (:host github :repo "org-roam/org-roam-bibtex"))
+;; When using org-roam via the `+roam` flag
+(unpin! org-roam)
+;; When using bibtex-completion via the `biblio` module
+(unpin! bibtex-completion helm-bibtex ivy-bibtex)
