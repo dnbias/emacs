@@ -79,7 +79,7 @@
 
 ;; (load! "fancy-splash")
 (load! "fancy-phrases")
-(setq fancy-splash-image "~/.config/doom/misc/splash-images/emacs-e-smaller.png")
+(setq fancy-splash-image "~/.config/doom/misc/splash-images/emacs-e-smallerer.webp")
 
 ;; ;; change mode-line color by evil state
 ;; (lexical-let ((default-color (cons (face-background 'mode-line)

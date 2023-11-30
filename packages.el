@@ -2,10 +2,10 @@
 ;;; $DOOMDIR/packages.el
 (package! evil-snipe :disable t) ;; conflicts with rebindings to s
 (package! org-superstar)
-(package! auto-activating-snippets
-  :recipe
-  (:host github
-   :repo "ymarco/auto-activating-snippets"))
+;; (package! auto-activating-snippets
+;;   :recipe
+;;   (:host github
+;;    :repo "ymarco/auto-activating-snippets"))
 
 ;; (package! LaTeX-auto-activating-snippets
 ;;   :recipe
@@ -30,15 +30,15 @@
            :repo "Townk/org-ol-tree"
            ))
 (package! org-roam-ui)
-(package! eww)
+;; (package! eww)
 (package! org-modern)
 (package! org-appear)
 (package! rainbow-mode)
 (package! sublimity)
-(package! eradio)
+;; (package! eradio)
 (package! perfect-margin)
-(package! vuiet)
-(package! edit-server)
+;; (package! vuiet)
+;; (package! edit-server)
 (package! centered-cursor-mode)
 (package! consult)
 (package! consult-org-roam)
@@ -54,3 +54,5 @@
 (unpin! org-roam)
 ;; When using bibtex-completion via the `biblio` module
 (unpin! bibtex-completion helm-bibtex ivy-bibtex)
+(unpin! org-mode)
+(unpin! org)

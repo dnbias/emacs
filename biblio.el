@@ -22,6 +22,7 @@
                        :props '(:finalize find-file))))
 
 
+(require 'all-the-icons)
 ;; https://kristofferbalintona.me/posts/202206141852/#configuration
 ;; Use `citar' with `org-cite'
 (use-package! citar

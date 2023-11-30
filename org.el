@@ -116,3 +116,6 @@
         (plist-put org-format-latex-options :background "Transparent"))
   (setq org-format-latex-options
       (plist-put org-format-latex-options :scale 1)))
+
+(use-package! ox-hugo
+  :after org)

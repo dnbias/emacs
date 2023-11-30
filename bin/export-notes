@@ -1,0 +1,23 @@
+#!/usr/bin/env doomscript
+
+(defcli! export-notes (&args files)
+  (require 'doom-start)          ; load your user config
+  ;; (add-to-list 'load-path "~/.config/emacs/.local/straight/build-29.1/ox-hugo/") ; it's ugly I know
+  ;; (add-to-list 'load-path "~/.config/emacs/.local/straight/build-29.1/tomelr/")
+  ;; (add-to-list 'load-path "~/.config/emacs/.local/straight/build-29.1/org/")
+  ;; (add-to-list 'load-path "~/.config/emacs/.local/straight/repos/org/lisp/")
+  (require 'find-lisp)
+  (require 'org)
+  (require 'ox-hugo)
+  (require 'org-archive)
+  (setq org-roam-directory "~/Documents/brain/roam/")
+  (projectile-mode -1)
+  (dtrt-indent-mode -1)
+  (recentf-mode -1)
+  (dolist (file files)           ; supports multiple files, if you want
+    (with-current-buffer (find-file-noselect file)
+      (setq org-hugo-base-dir "..")
+      (let ((org-id-extra-files (find-lisp-find-files org-roam-directory "\.org$")))
+        (org-hugo-export-wim-to-md)))))
+
+(run! "export-notes" (cdr (member "--" argv)))

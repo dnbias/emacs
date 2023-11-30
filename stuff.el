@@ -2,26 +2,26 @@
 
 (defvar-local elfeed-org-file-path (expand-file-name "elfeed.org" org-directory))
 
-(use-package! eradio
-  :custom
-  (eradio-player '("mpv" "--no-video" "--no-terminal")))
+;; (use-package! eradio
+;;   :custom
+;;   (eradio-player '("mpv" "--no-video" "--no-terminal")))
 
-(map! :leader (:prefix ("r" . "eradio") :desc "Play a radio channel" "p" 'eradio-play))
-(map! :leader (:prefix ("r" . "eradio") :desc "Stop the radio player" "s" 'eradio-stop))
-(map! :leader (:prefix ("r" . "eradio") :desc "Toggle the radio player" "t" 'eradio-toggle))
+;; (map! :leader (:prefix ("r" . "eradio") :desc "Play a radio channel" "p" 'eradio-play))
+;; (map! :leader (:prefix ("r" . "eradio") :desc "Stop the radio player" "s" 'eradio-stop))
+;; (map! :leader (:prefix ("r" . "eradio") :desc "Toggle the radio player" "t" 'eradio-toggle))
 
-(setq eradio-channels '(("def con - soma fm" . "https://somafm.com/defcon256.pls")          ;; electronica with defcon-speaker bumpers
-                        ("radio apple" . "http://s2.radioapple.eu:8000/stream/1/")
-                        ("bbc - radio 1"   . "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one")
-                        ("bbc - world" . "http://open.live.bbc.co.uk/mediaselector/5/select/mediaset/http-icy-mp3-a/format/pls/proto/http/vpid/bbc_world_service.pls")
-                        ("frisky" . "http://stream.friskyradio.com:8000/frisky_aac_hi/")
-                        ("frisky - chill" . "http://chill.friskyradio.com/friskychill_mp3_high")
-                        ("frisky - deep" . "http://deep.friskyradio.com/friskydeep_aachi")
-                        ("caroline"   . "http://sc3.radiocaroline.net:8030/listen.m3u")
-                        ("metal - soma fm"   . "https://somafm.com/metal130.pls")           ;; \m/
-                        ("cyberia - lainon"  . "https://lainon.life/radio/cyberia.ogg.m3u") ;; cyberpunk-esque electronica
-                        ("everything - lainon"  . "https://lainon.life/radio/everything.ogg.m3u") ;; cyberpunk-esque electronica
-                        ("cafe - lainon"     . "https://lainon.life/radio/cafe.ogg.m3u")))  ;; boring ambient, but with lain
+;; (setq eradio-channels '(("def con - soma fm" . "https://somafm.com/defcon256.pls")          ;; electronica with defcon-speaker bumpers
+;;                         ("radio apple" . "http://s2.radioapple.eu:8000/stream/1/")
+;;                         ("bbc - radio 1"   . "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one")
+;;                         ("bbc - world" . "http://open.live.bbc.co.uk/mediaselector/5/select/mediaset/http-icy-mp3-a/format/pls/proto/http/vpid/bbc_world_service.pls")
+;;                         ("frisky" . "http://stream.friskyradio.com:8000/frisky_aac_hi/")
+;;                         ("frisky - chill" . "http://chill.friskyradio.com/friskychill_mp3_high")
+;;                         ("frisky - deep" . "http://deep.friskyradio.com/friskydeep_aachi")
+;;                         ("caroline"   . "http://sc3.radiocaroline.net:8030/listen.m3u")
+;;                         ("metal - soma fm"   . "https://somafm.com/metal130.pls")           ;; \m/
+;;                         ("cyberia - lainon"  . "https://lainon.life/radio/cyberia.ogg.m3u") ;; cyberpunk-esque electronica
+;;                         ("everything - lainon"  . "https://lainon.life/radio/everything.ogg.m3u") ;; cyberpunk-esque electronica
+;;                         ("cafe - lainon"     . "https://lainon.life/radio/cafe.ogg.m3u")))  ;; boring ambient, but with lain
 
 
 (map! :leader :desc "Open RSS feed" "e" #'elfeed)
