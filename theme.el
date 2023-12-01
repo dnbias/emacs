@@ -1,8 +1,8 @@
 ;;; theme.el -*- lexical-binding: t; -*-
 (setq which-key-idle-delay 0.3)
 
-(set-frame-parameter (selected-frame) 'alpha-background 85)
-(add-to-list 'default-frame-alist '(alpha-background . 85))
+(set-frame-parameter (selected-frame) 'alpha-background 95)
+(add-to-list 'default-frame-alist '(alpha-background . 95))
 (add-to-list 'default-frame-alist '(alpha . 95))
 
 (setq doom-theme 'doom-rouge)
@@ -13,10 +13,11 @@
   `(orderless-match-face-1 :foreground ,(doom-color 'bg))
   `(orderless-match-face-2 :foreground ,(doom-color 'bg))
   `(orderless-match-face-3 :foreground ,(doom-color 'bg))
-  ;; `(minibuffer-prompt
-  ;;   :foreground ,(doom-color 'fg)
-  ;;   :background ,(face-background 'default))
-  ;; `(vertico-current :background ,(doom-darken 'bg 0.9))
+  `(minibuffer-prompt
+    :foreground ,(doom-color 'fg)
+    :background ,(face-background 'default))
+  `(vertico-current :background "#ffffff")
+  `(vertico-current :foreground ,(doom-lighten 'fg 1.0))
   )
 
 (after! org-mode
@@ -80,7 +81,11 @@
 
 ;; (load! "fancy-splash")
 (load! "fancy-phrases")
+<<<<<<< HEAD
 (setq fancy-splash-image "~/.config/doom/misc/splash-images/emacs-e-smallerer.webp")
+=======
+(setq fancy-splash-image "~/.config/doom/misc/splash-images/emacs-e-smaller.svg")
+>>>>>>> 98d15fe (various)
 
 ;; ;; change mode-line color by evil state
 ;; (lexical-let ((default-color (cons (face-background 'mode-line)

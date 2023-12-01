@@ -28,5 +28,10 @@
 
 ;; The personal dictionary file has to exist, otherwise hunspell will
 ;; silently not use it.
+<<<<<<< HEAD
 ;;(unless (file-exists-p ispell-personal-dictionary)
 ;;  (write-region "" nil ispell-personal-dictionary nil 0))
+=======
+;; (unless (file-exists-p ispell-personal-dictionary)
+;;   (write-region "" nil ispell-personal-dictionary nil 0))
+>>>>>>> 98d15fe (various)

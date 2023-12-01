@@ -1,15 +1,21 @@
 ;;; latex.el -*- lexical-binding: t; -*-
 (require 'ox-latex)
 
-(setq org-latex-classes
-             '(("my_thesis"  ;; use with: #+LaTeX_CLASS: my_thesis
+;; (setq org-latex-classes
+;;              '(("my_thesis"  ;; use with: #+LaTeX_CLASS: my_thesis
+;;                       "\\input{my_thesis.tex}"
+;;                       ("\\section{%s}" . "\\section*{%s}")
+;;                       ("\\subsection{%s}" . "\\subsection*{%s}")
+;;                       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;;                       ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;;                       ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+(add-to-list 'org-latex-classes  '(("my_thesis"  ;; use with: #+LaTeX_CLASS: my_thesis
                       "\\input{my_thesis.tex}"
                       ("\\section{%s}" . "\\section*{%s}")
                       ("\\subsection{%s}" . "\\subsection*{%s}")
                       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                       ("\\paragraph{%s}" . "\\paragraph*{%s}")
                       ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
 
 (setq org-latex-pdf-process '("latexmk -shell-escape -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f"
                               "latexmk -shell-escape -f -pdf -%latex -interaction=nonstopmode -output-directory=%o %f"))

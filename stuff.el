@@ -98,4 +98,5 @@
 
 ;; weird org-mode bug
 ;; https://github.com/nobiot/org-transclusion/issues/105
-(setq warning-suppress-types (append warning-suppress-types '((org-element-cache))))
+(setq warning-suppress-types '((org-element-cache)
+                               (yasnippet zombie)))

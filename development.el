@@ -36,6 +36,14 @@
 
 (use-package lsp-mode
   :commands lsp
+  :bind (:map lsp-mode-map
+         ("C-c C-c r" . lsp-rename)
+         ("C-c C-c d" . lsp-find-definition)
+         ("C-c C-c r" . lsp-find-references)
+         ("C-c C-c l" . flycheck-list-errors)
+         ("C-c C-c a" . lsp-execute-code-action)
+         ("C-c C-c q" . lsp-workspace-restart)
+         ("C-c C-c Q" . lsp-workspace-shutdown))
   :hook
   (prog-mode . 'lsp-deferred)
   :custom
@@ -101,8 +109,8 @@
 (use-package rustic
   :bind (:map rustic-mode-map
           ("C-c C-c r" . lsp-rename)
-          ("C-l C-c d" . lsp-find-definitions)
-          ("C-l C-c r" . lsp-find-references)
+          ("C-c C-c d" . lsp-find-definitions)
+          ("C-c C-c r" . lsp-find-references)
           ("C-c C-c l" . flycheck-list-errors)
           ("C-c C-c a" . lsp-execute-code-action)
           ("C-c C-c q" . lsp-workspace-restart)
@@ -115,6 +123,15 @@
   (setq lsp-signature-auto-activate t)
   (setq rustic-format-on-save nil))
 
+;; (use-package lsp-python-ms
+;;   :ensure t
+;;   :init (setq lsp-python-ms-auto-install-server t)
+;;   :hook (python-mode . (lambda ()
+;;                           (require 'lsp-python-ms)
+;;                           (lsp-deferred)))
+;;   :init
+;;   (setq lsp-python-ms-executable (executable-find "python-language-server")))
+
 (use-package! rainbow-mode)
 
 (setq +zen-text-scale 1.1)
@@ -126,6 +143,6 @@
   (require 'sublimity-scroll)
   :custom
   (sublimity-scroll-hide-cursor nil)
-  (sublimity-scroll-weight 6)
-  (sublimity-scroll-drift-length 8)
-  (sublimity-scroll-vertical-frame-delay 0.01))
+  (sublimity-scroll-weight 8)
+  (sublimity-scroll-drift-length 1)
+  (sublimity-scroll-vertical-frame-delay 0.006))
