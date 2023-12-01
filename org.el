@@ -1,6 +1,6 @@
 ;;; org.el -*- lexical-binding: t; -*-
 
-(setq org-directory "~/Documents/brain/"
+(setq org-directory "~/personal/brain/"
       ;; file-truename used to follow sym-links
       org-roam-directory (file-truename (expand-file-name "roam/" org-directory))
       org-roam-dailies-directory "journal/")

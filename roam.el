@@ -1,6 +1,4 @@
 ;;; roam.el -*- lexical-binding: t; -*-
-(setq book-note-template (expand-file-name "template/BookNote.org" org-directory))
-
 (use-package! org-roam
   :after org
   :hook
@@ -33,27 +31,27 @@
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("b" "book note" plain
-     (file "/home/dnbias/Documents/brain/templates/BookNote.org")
+     (file (expand-file-name "template/BookNote.org" org-directory))
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("a" "author" plain
-     (file "/home/dnbias/Documents/brain/templates/Author.org")
+     (file (expand-file-name "template/Author.org" org-directory))
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("v" "video note" plain
-     (file "/home/dnbias/Documents/brain/templates/VideoNote.org")
+     (file (expand-file-name "template/VideoNote.org" org-directory))
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("c" "podcast note" plain
-     (file "/home/dnbias/Documents/brain/templates/PodcastNote.org")
+     (file (expand-file-name "template/PodcastNote.org" org-directory))
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("n" "article note" plain
-     (file "/home/dnbias/Documents/brain/templates/ArticleNote.org")
+     (file (expand-file-name "template/ArticleNote.org" org-directory))
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("p" "project" plain
-     (file "/home/dnbias/Documents/brain/templates/Project.org")
+     (file (expand-file-name "template/Project.org" org-directory))
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     )

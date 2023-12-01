@@ -36,7 +36,7 @@
   :bind
   (:map org-mode-map :package org ("C-c b" . #'org-cite-insert))
   :custom
-  (org-cite-global-bibliography '("~/Documents/bib/references.bib"))
+  (org-cite-global-bibliography '("~/personal/documents/bib/references.bib"))
   (org-cite-insert-processor 'citar)
   (org-cite-follow-processor 'citar)
   (org-cite-activate-processor 'citar)

@@ -1,6 +1,5 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
-(package! evil-snipe :disable t) ;; conflicts with rebindings to s
 (package! org-superstar)
 ;; (package! auto-activating-snippets
 ;;   :recipe
@@ -56,3 +55,6 @@
 (unpin! bibtex-completion helm-bibtex ivy-bibtex)
 (unpin! org-mode)
 (unpin! org)
+
+(package! evil-snipe)
+(package! evil-quickscope)

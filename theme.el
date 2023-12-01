@@ -5,7 +5,7 @@
 (add-to-list 'default-frame-alist '(alpha-background . 85))
 (add-to-list 'default-frame-alist '(alpha . 95))
 
-(setq doom-theme 'doom-meltbus)
+(setq doom-theme 'doom-rouge)
 (custom-set-faces!
   '(default :background "#111116"))
 (custom-set-faces!
@@ -13,10 +13,11 @@
   `(orderless-match-face-1 :foreground ,(doom-color 'bg))
   `(orderless-match-face-2 :foreground ,(doom-color 'bg))
   `(orderless-match-face-3 :foreground ,(doom-color 'bg))
-  `(minibuffer-prompt
-    :foreground ,(doom-color 'fg)
-    :background ,(face-background 'default))
-  `(vertico-current :background ,(doom-darken 'bg 0.9)))
+  ;; `(minibuffer-prompt
+  ;;   :foreground ,(doom-color 'fg)
+  ;;   :background ,(face-background 'default))
+  ;; `(vertico-current :background ,(doom-darken 'bg 0.9))
+  )
 
 (after! org-mode
   (custom-set-faces!

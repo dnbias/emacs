@@ -136,8 +136,7 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        json                ; At least it ain't XML
-       (java +meghanada    ; the poster child for carpal tunnel syndrome
-
+       (java               ; the poster child for carpal tunnel syndrome
              +lsp)
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
