@@ -65,14 +65,20 @@
   (evil-snipe-scope 'visible)
   (evil-snipe-incremental-highlight t))
 (use-package! evil-quickscope
+  :hook
+  (prog-mode . global-evil-quickscope-mode)
   :config
   (setq global-evil-quickscope-mode t))
 
-(defun scroll-to-center-advice (&rest args)
-  (evil-scroll-line-to-center (line-number-at-pos)))
+(defun scroll-to-center-advice (&args)
+  (recenter))
 
 ;; functions that should center after called
 (advice-add #'evil-goto-line :after #'scroll-to-center-advice)
 (advice-add #'evil-goto-definition :after #'scroll-to-center-advice)
-(advice-add #'evil-scroll-page-down :after #'scroll-to-center-advice)
-(advice-add #'evil-scroll-page-up :after #'scroll-to-center-advice)
+(advice-add #'evil-goto-mark :after #'scroll-to-center-advice)
+(advice-add #'evil-goto-mark-line :after #'scroll-to-center-advice)
+(advice-add #'lsp-goto-implementation :after #'scroll-to-center-advice)
+(advice-add #'lsp-goto-type-definition :after #'scroll-to-center-advice)
+(advice-add #'evil-scroll-down :after #'scroll-to-center-advice)
+(advice-add #'evil-scroll-up :after #'scroll-to-center-advice)

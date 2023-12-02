@@ -9,14 +9,14 @@
 (custom-set-faces!
   '(default :background "#111116"))
 (custom-set-faces!
-  `(orderless-match-face-0 :foreground ,(doom-color 'bg))
-  `(orderless-match-face-1 :foreground ,(doom-color 'bg))
-  `(orderless-match-face-2 :foreground ,(doom-color 'bg))
-  `(orderless-match-face-3 :foreground ,(doom-color 'bg))
+  `(orderless-match-face-0 :foreground ,(doom-color 'red))
+  `(orderless-match-face-1 :foreground ,(doom-color 'red))
+  `(orderless-match-face-2 :foreground ,(doom-color 'red))
+  `(orderless-match-face-3 :foreground ,(doom-color 'red))
   `(minibuffer-prompt
     :foreground ,(doom-color 'fg)
     :background ,(face-background 'default))
-  `(vertico-current :background "#ffffff")
+  ;; `(vertico-current :background "#ffffff")
   `(vertico-current :foreground ,(doom-lighten 'fg 1.0))
   )
 
@@ -52,8 +52,8 @@
 (setq doom-modeline-height 15)
 
 
-(setq doom-font (font-spec :family "agave" :size 16)
-      doom-big-font (font-spec :family "agave" :size 25)
+(setq doom-font (font-spec :family "Iosevka Comfy" :size 16)
+      doom-big-font (font-spec :family "Iosevka Comfy" :size 25)
       ;; doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 16)
       doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 16)
       ;; doom-variable-pitch-font (font-spec :family "Bitter" :size 17)

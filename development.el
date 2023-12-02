@@ -39,7 +39,7 @@
   :bind (:map lsp-mode-map
          ("C-c C-c r" . lsp-rename)
          ("C-c C-c d" . lsp-find-definition)
-         ("C-c C-c r" . lsp-find-references)
+         ("C-c C-c R" . lsp-find-references)
          ("C-c C-c l" . flycheck-list-errors)
          ("C-c C-c a" . lsp-execute-code-action)
          ("C-c C-c q" . lsp-workspace-restart)
@@ -110,7 +110,7 @@
   :bind (:map rustic-mode-map
           ("C-c C-c r" . lsp-rename)
           ("C-c C-c d" . lsp-find-definitions)
-          ("C-c C-c r" . lsp-find-references)
+          ("C-c C-c R" . lsp-find-references)
           ("C-c C-c l" . flycheck-list-errors)
           ("C-c C-c a" . lsp-execute-code-action)
           ("C-c C-c q" . lsp-workspace-restart)
@@ -136,13 +136,13 @@
 
 (setq +zen-text-scale 1.1)
 
-(use-package! sublimity
-  :hook
-  (text-mode . sublimity-mode)
-  :config
-  (require 'sublimity-scroll)
-  :custom
-  (sublimity-scroll-hide-cursor nil)
-  (sublimity-scroll-weight 8)
-  (sublimity-scroll-drift-length 1)
-  (sublimity-scroll-vertical-frame-delay 0.006))
+;; (use-package! sublimity
+;;   :hook
+;;   (text-mode . sublimity-mode)
+;;   :config
+;;   (require 'sublimity-scroll)
+;;   :custom
+;;   (sublimity-scroll-hide-cursor nil)
+;;   (sublimity-scroll-weight 8)
+;;   (sublimity-scroll-drift-length 1)
+;;   (sublimity-scroll-vertical-frame-delay 0.006))
