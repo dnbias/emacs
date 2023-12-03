@@ -30,7 +30,7 @@
   (org-mode . (lambda()(perfect-margin-mode -1)))
   (org-mode . (lambda()(org-indent-mode -1)))
   (org-mode . (lambda()(set-fringe-style nil)))
-  (org-mode . (lambda()(git-gutter-mode -1)))
+  ;; (org-mode . (lambda()(git-gutter-mode -1)))
   (org-mode . (lambda()(hl-line-mode -1)))
   :custom
   (line-spacing nil))

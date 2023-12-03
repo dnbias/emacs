@@ -25,33 +25,34 @@
      "* %<%H:%M>\n%?"
      :target (file+head "%<%Y-%m-%d>.org"
                         "#+title: %<%Y-%m-%d>\n"))))
+
   (org-roam-capture-templates
   '(("d" "default" plain
      "%?"
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("b" "book note" plain
-     (file (expand-file-name "template/BookNote.org" org-directory))
+     (file "~/personal/brain/templates/BookNote.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("a" "author" plain
-     (file (expand-file-name "template/Author.org" org-directory))
+     (file "~/personal/brain/templates/Author.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("v" "video note" plain
-     (file (expand-file-name "template/VideoNote.org" org-directory))
+     (file "~/personal/brain/templates/VideoNote.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("c" "podcast note" plain
-     (file (expand-file-name "template/PodcastNote.org" org-directory))
+     (file "~/personal/brain/templates/PodcastNote.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("n" "article note" plain
-     (file (expand-file-name "template/ArticleNote.org" org-directory))
+     (file "~/personal/brain/templates/ArticleNote.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     ("p" "project" plain
-     (file (expand-file-name "template/Project.org" org-directory))
+     (file "~/personal/brain/templates/Project.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
     )
@@ -68,13 +69,13 @@
            (shortentitle (if (> (length filetitle-or-name) 20) (concat (substring filetitle-or-name 0 20)  "...") filetitle-or-name))
            (separator (concat " " (all-the-icons-material "chevron_right") " ")))
       (cond
-       ((= level 1) (concat (propertize (format "=level:%d=" level) 'display (all-the-icons-material "insert_drive_file" :face 'all-the-icons-dyellow))
+       ((= level 1) (concat (propertize (format "=level:%d=" level) 'display (all-the-icons-material "view_headline" :face 'all-the-icons-dyellow))
                             (propertize shortentitle 'face 'org-roam-olp) separator title))
-       ((= level 2) (concat (propertize (format "=level:%d=" level) 'display (all-the-icons-material "insert_drive_file" :face 'all-the-icons-dsilver))
+       ((= level 2) (concat (propertize (format "=level:%d=" level) 'display (all-the-icons-material "view_headline" :face 'all-the-icons-dsilver))
                             (propertize (concat shortentitle separator (string-join olp separator)) 'face 'org-roam-olp) separator title))
-       ((> level 2) (concat (propertize (format "=level:%d=" level) 'display (all-the-icons-material "insert_drive_file" :face 'org-roam-olp))
+       ((> level 2) (concat (propertize (format "=level:%d=" level) 'display (all-the-icons-material "view_headline" :face 'org-roam-olp))
                             (propertize (concat shortentitle separator (string-join olp separator)) 'face 'org-roam-olp) separator title))
-       (t (concat (propertize (format "=level:%d=" level) 'display (all-the-icons-material "insert_drive_file" :face 'all-the-icons-yellow))
+       (t (concat (propertize (format "=level:%d=" level) 'display (all-the-icons-material "view_headline" :face 'all-the-icons-yellow))
                   (if filetitle title (propertize filetitle-or-name 'face 'all-the-icons-dyellow)))))))
 
   (cl-defmethod org-roam-node-functiontag ((node org-roam-node))

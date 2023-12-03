@@ -16,9 +16,9 @@
   `(minibuffer-prompt
     :foreground ,(doom-color 'fg)
     :background ,(face-background 'default))
-  ;; `(vertico-current :background "#ffffff")
-  `(vertico-current :foreground ,(doom-lighten 'fg 1.0))
-  )
+  `(vertico-current
+    :background  "#111116"
+    :foreground ,(doom-color 'red)))
 
 (after! org-mode
   (custom-set-faces!
@@ -176,10 +176,10 @@
   (olivetti-body-width 65)
   :config
   (olivetti-set-width 65)
-  (set-fringe-style 8)
-  (git-gutter-mode -1))
+  (set-fringe-style 8))
+  ;; (git-gutter-mode -1))
 
-(setq git-gutter:visual-line t)
+;; (setq git-gutter:visual-line t)
 ;;        git-gutter:added-sign "|"
 ;;        git-gutter:added-sign "|")
 

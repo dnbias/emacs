@@ -32,4 +32,4 @@
  '(org-level-7 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro"))))
  '(org-level-8 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro"))))
  '(org-quote ((t (:background nil :font "Adobe Garamond Pro" :slant normal))))
- '(vertico-current ((t (:background "black")))))
+ )
