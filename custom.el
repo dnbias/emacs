@@ -17,11 +17,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(minibuffer-prompt ((t (:foreground "#dddddd" :background "#111116"))))
- '(orderless-match-face-0 ((t (:foreground "black"))))
- '(orderless-match-face-1 ((t (:foreground "black"))))
- '(orderless-match-face-2 ((t (:foreground "black"))))
- '(orderless-match-face-3 ((t (:foreground "black"))))
+ ;; '(default ((t (:background "#111116"))))
+ ;; '(minibuffer-prompt ((t (:foreground "#dddddd" :background "#111116"))))
+ ;; '(orderless-match-face-0 ((t (:foreground "black"))))
+ ;; '(orderless-match-face-1 ((t (:foreground "black"))))
+ ;; '(orderless-match-face-2 ((t (:foreground "black"))))
+ ;; '(orderless-match-face-3 ((t (:foreground "black"))))
  '(org-document-title ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro" :height 2.0 :underline nil))))
  '(org-level-1 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro" :height 1.75))))
  '(org-level-2 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro" :height 1.5))))

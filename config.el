@@ -8,7 +8,7 @@
 (load! "development")
 (load! "spellcheck")
 (load! "consult")
-(load! "theme")
 (load! "biblio")
 (load! "roam")
 (load! "stuff")
+(load! "theme")

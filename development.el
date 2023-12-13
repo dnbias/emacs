@@ -3,6 +3,7 @@
 (defvar-local dotfiles-directory "/home/dnbias/.config/")
 (global-subword-mode 1)                           ; Iterate through CamelCase words
 (setq display-line-numbers-type 'relative)
+(setq display-fill-column-indicator t)
 (use-package vterm
   :bind
   ("C-c `" . vterm))
@@ -46,6 +47,7 @@
          ("C-c C-c Q" . lsp-workspace-shutdown))
   :hook
   (prog-mode . 'lsp-deferred)
+  (prog-mode . 'display-fill-column-indicator-mode)
   :custom
   ;; what to use when checking on-save. "check" is default, I prefer clippy
   (lsp-warn-no-matched-clients nil) ;; no chit-chat

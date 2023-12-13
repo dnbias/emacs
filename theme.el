@@ -5,30 +5,35 @@
 (add-to-list 'default-frame-alist '(alpha-background . 95))
 (add-to-list 'default-frame-alist '(alpha . 95))
 
-(setq doom-theme 'doom-rouge)
-(custom-set-faces!
-  '(default :background "#111116"))
-(custom-set-faces!
-  `(orderless-match-face-0 :foreground ,(doom-color 'red))
-  `(orderless-match-face-1 :foreground ,(doom-color 'red))
-  `(orderless-match-face-2 :foreground ,(doom-color 'red))
-  `(orderless-match-face-3 :foreground ,(doom-color 'red))
-  `(minibuffer-prompt
-    :foreground ,(doom-color 'fg)
-    :background ,(face-background 'default))
-  `(vertico-current
-    :background  "#111116"
-    :foreground ,(doom-color 'red)))
+(setq doom-theme 'rougee)
+;; (custom-set-faces!
+;;   ;; `(doom-color 'bg "#111116")
+;;   ;; `(default :background "#111116")
+;;   `(orderless-match-face-0 :foreground ,(doom-color 'red))
+;;   `(orderless-match-face-1 :foreground ,(doom-color 'red))
+;;   `(orderless-match-face-2 :foreground ,(doom-color 'red))
+;;   `(orderless-match-face-3 :foreground ,(doom-color 'red))
+;;   `(minibuffer-prompt
+;;     :foreground ,(doom-color 'fg)
+;;     :background ,(face-background 'default))
+;;   `(doom-modeline :background ,(face-background 'default))
+;;   `(org-code :background  "#111116")
+;;   `(org-block :background  "#111116")
+;;   `(font-latex-math-face :background  "#111116")
+;;   `(vertico-current
+;;     :background  "#111116"
+;;     :foreground ,(doom-color 'red)))
 
-(after! org-mode
-  (custom-set-faces!
-    `(fringe :background ,(face-background 'default))
-    `(org-block-begin-line :background ,(face-background 'default))))
+;; (after! org-mode
+;;   (custom-set-faces!
+;;     `(fringe :background ,(face-background 'default))
+;;     `(org-block-begin-line :background ,(face-background 'default))))
 
-(defun my/set-backgrounds ()
-  (set-face-background 'minibuffer-prompt (face-attribute 'default :background))
-  (set-face-background 'fringe (face-attribute 'default :background))
-  (set-face-background 'org-block-begin-line (face-attribute 'default :background)))
+;; (defun my/set-backgrounds ()
+;;   (set-face-background 'default "#111116")
+;;   (set-face-background 'minibuffer-prompt (face-attribute 'default :background))
+;;   (set-face-background 'fringe (face-attribute 'default :background))
+;;   (set-face-background 'org-block-begin-line (face-attribute 'default :background)))
 
 ;; (setq evil-normal-state-cursor '("#819cd6" hollow))
 
@@ -108,7 +113,7 @@
 ;              (set-face-foreground face (face-attribute 'default :background)))))
 
 
-(with-eval-after-load 'org-faces (my/set-backgrounds))
+;; (with-eval-after-load 'org-faces (my/set-backgrounds))
 
 (custom-set-faces!
   '(org-quote :inherit 'variable-pitch))
