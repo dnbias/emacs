@@ -30,7 +30,6 @@ determine the exact padding."
   :group 'doom-rouge-theme
   :type '(choice integer boolean))
 
-
 ;;
 ;;; Theme definition
 
@@ -177,6 +176,16 @@ determine the exact padding."
    (org-hide :foreground hidden)
    (org-code :background bg)
    (org-block :background bg)
+   (org-quote :foreground fg-alt)
+   (org-level-1 :foreground fg)
+   (org-level-2 :foreground fg)
+   (org-level-3 :foreground fg)
+   (org-level-4 :foreground fg)
+   (org-level-5 :foreground fg)
+   (org-level-6 :foreground fg)
+   (org-level-7 :foreground fg)
+   (org-level-8 :foreground fg)
+   (org-document-title :foreground fg)
    ;;;; org-latex
    (font-latex-math-face :background bg)
    ;;;; consult
@@ -185,6 +194,11 @@ determine the exact padding."
    (vertico-current :background (doom-lighten bg 0.1))
    ;;;; orderless
    (orderless-match-face-0 :foreground red)
+   ;;;; bookmarks
+   (bookmark-face :background bg)
+   ;;;; lines
+   (highlight-indent-guides-character-face :foreground base3)
+   (fill-column-indicator :foreground base4)
    ;;;; solaire-mode
    (solaire-mode-line-face
     :inherit 'mode-line

@@ -58,3 +58,7 @@
 
 (package! evil-snipe)
 (package! evil-quickscope)
+
+(package! beacon)
+(package! vertico-posframe)
+(package! spacious-padding)

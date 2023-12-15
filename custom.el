@@ -12,25 +12,3 @@
    '(((yasnippet zombie))
      ((yasnippet zombie))
      ((yasnippet zombie)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- ;; '(default ((t (:background "#111116"))))
- ;; '(minibuffer-prompt ((t (:foreground "#dddddd" :background "#111116"))))
- ;; '(orderless-match-face-0 ((t (:foreground "black"))))
- ;; '(orderless-match-face-1 ((t (:foreground "black"))))
- ;; '(orderless-match-face-2 ((t (:foreground "black"))))
- ;; '(orderless-match-face-3 ((t (:foreground "black"))))
- '(org-document-title ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro" :height 2.0 :underline nil))))
- '(org-level-1 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro" :height 1.75))))
- '(org-level-2 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro" :height 1.5))))
- '(org-level-3 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro" :height 1.25))))
- '(org-level-4 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro" :height 1.1))))
- '(org-level-5 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro"))))
- '(org-level-6 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro"))))
- '(org-level-7 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro"))))
- '(org-level-8 ((t (:inherit default :weight bold :foreground "unspecified-fg" :font "SF Pro"))))
- '(org-quote ((t (:background nil :font "Adobe Garamond Pro" :slant normal))))
- )

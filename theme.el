@@ -57,10 +57,12 @@
 (setq doom-modeline-height 15)
 
 
-(setq doom-font (font-spec :family "Iosevka Comfy" :size 16)
+(setq doom-font (font-spec :family "Iosevka Comfy" :size 17 :height 0.9)
       doom-big-font (font-spec :family "Iosevka Comfy" :size 25)
+      doom-symbol-font (font-spec :family "Fira Code")
+      doom-variable-pitch-font (font-spec :family "Quattrocento" :size 17)
+      ;; doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 17)
       ;; doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 16)
-      doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 16)
       ;; doom-variable-pitch-font (font-spec :family "Bitter" :size 17)
       ;; doom-variable-pitch-font (font-spec :family "iA Writer Duospace" :size 16)
       ;; doom-variable-pitch-font (font-spec :family "iM Writing Duospace" :size 16)
@@ -69,9 +71,19 @@
       ;; doom-variable-pitch-font (font-spec :family "SF Pro" :weight 'regular  :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Roboto" :weight 'regular  :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Noto Sans" :weight 'light  :size 18)
-      doom-unicode-font (font-spec :family "Fira Code")
       ;;doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light)
       )
+
+(custom-set-faces!
+  '(org-document-title :font "Philosopher" :size 15 :height 2.0 :weight bold)
+  '(org-level-1 :font "Adobe Garamond Pro" :height 1.75 :size 20 :weight bold)
+  '(org-level-2 :font "Adobe Garamond Pro" :height 1.50 :weight bold)
+  '(org-level-3 :font "Adobe Garamond Pro" :height 1.25 :weight bold)
+  '(org-level-4 :font "Adobe Garamond Pro" :height 1.00 :weight bold)
+  '(org-level-5 :font "Adobe Garamond Pro" :height 1.00 :weight bold)
+  '(org-level-6 :font "Adobe Garamond Pro" :height 1.00 :weight bold)
+  '(org-code :font "iA Writer Duospace")
+  '(org-quote :font "Adobe Garamond Pro" :slant normal :height 1.10 :size 20))
 
 ;; (custom-set-faces
 ;;   '(mode-line ((t (:family "SF Pro Display" :height 1.0))))
@@ -115,8 +127,6 @@
 
 ;; (with-eval-after-load 'org-faces (my/set-backgrounds))
 
-(custom-set-faces!
-  '(org-quote :inherit 'variable-pitch))
 
 (use-package! mixed-pitch
   :after org
@@ -178,9 +188,9 @@
   (org-mode . olivetti-mode)
   (elfeed-show-entry . org-mode)
   :custom
-  (olivetti-body-width 65)
+  (olivetti-body-width 60)
   :config
-  (olivetti-set-width 65)
+  (olivetti-set-width 60)
   (set-fringe-style 8))
   ;; (git-gutter-mode -1))
 
@@ -192,3 +202,22 @@
   :commands (info-colors-fontify-node))
 
 (add-hook 'Info-selection-hook 'info-colors-fontify-node)
+
+;; (use-package! pulsar
+;;   :custom
+;;   (pulsar-pulse t)
+;;   (pulsar-delay 0.055)
+;;   (pulsar-iterations 9)
+;;   (pulsar-face 'pulsar-blue)
+;;   (pulsar-highlight-face 'pulsar-yellow)
+;;   (pulsar-global-mode 1))
+
+;; ;; integration with the `consult' package:
+;; (add-hook 'consult-after-jump-hook #'pulsar-recenter-top)
+;; (add-hook 'consult-after-jump-hook #'pulsar-reveal-entry)
+
+;; never lose your cursor again
+(beacon-mode 1)
+(add-hook! 'beacon-mode 'recenter)
+
+(spacious-padding-mode 1)

@@ -1,18 +1,20 @@
 ;;; development.el -*- lexical-binding: t; -*-
 
 (defvar-local dotfiles-directory "/home/dnbias/.config/")
-(global-subword-mode 1)                           ; Iterate through CamelCase words
-(setq display-line-numbers-type 'relative)
-(setq display-fill-column-indicator t)
-(use-package vterm
-  :bind
-  ("C-c `" . vterm))
-
-(map! "C-c C-c z" #'+zen/toggle)
+(global-subword-mode nil)                      ; Iterate through CamelCase words
+(setq display-line-numbers-type 'relative
+      highlight-indent-guides-method 'character
+      highlight-indent-guides-auto-enabled nil
+      line-spacing 0
+      doom-font-increment 1
+      display-fill-column-indicator-character ?│)
+(setq global-display-fill-column-indicator-modes
+      '(prog-mode (not org-mode mail-mode message-mode) text-mode))
 
 (use-package company
   :hook
   ('after-init-hook . global-company-mode)
+  ('prog-mode-hook . highlight-indent-guides-mode)
   (rust-mode . company-mode)
   :custom
   (add-to-list 'company-backends 'company-dabbrev-code)
@@ -24,10 +26,10 @@
   ;; (company-begin-commands nil) ;; uncomment to disable popup
   :bind
   (:map company-active-map
-	      ("C-n". company-select-next)
-	      ("C-p". company-select-previous)
-	      ("M-<". company-select-first)
-	      ("M->". company-select-last)))
+        ("C-n". company-select-next)
+        ("C-p". company-select-previous)
+        ("M-<". company-select-first)
+        ("M->". company-select-last)))
 
 (use-package yasnippet
   :config
@@ -47,7 +49,6 @@
          ("C-c C-c Q" . lsp-workspace-shutdown))
   :hook
   (prog-mode . 'lsp-deferred)
-  (prog-mode . 'display-fill-column-indicator-mode)
   :custom
   ;; what to use when checking on-save. "check" is default, I prefer clippy
   (lsp-warn-no-matched-clients nil) ;; no chit-chat
@@ -136,7 +137,7 @@
 
 (use-package! rainbow-mode)
 
-(setq +zen-text-scale 1.1)
+(setq +zen-text-scale 1.0)
 
 ;; (use-package! sublimity
 ;;   :hook

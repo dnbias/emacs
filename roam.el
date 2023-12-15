@@ -15,11 +15,12 @@
         hp/org-roam-function-tags '("compilation" "argument" "journal" "video"
                                     "podcast" "concept" "tool" "data" "author"
                                     "book" "event" "article"))
-  (add-to-list 'magit-section-initial-visibility-alist
-               '(org-roam-unlinked-references-section . hide))
+  ;; (add-to-list 'magit-section-initial-visibility-alist
+  ;;              '(org-roam-unlinked-references-section . hide))
   :custom
   (org-roam-completion-everywhere t)
   (completion-ignore-case t)
+  (deft-directory org-roam-directory)
   (org-roam-dailies-capture-templates
   '(("d" "default" entry
      "* %<%H:%M>\n%?"
@@ -160,6 +161,7 @@
           org-roam-ui-open-on-start t))
 
 (org-roam-db-autosync-mode)
+(require 'org-roam)
 
 ;; this makes emacs follow symlinks, at a cost
 ;; (setq find-file-visit-truename t)
