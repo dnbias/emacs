@@ -26,9 +26,7 @@
 \\usepackage[nofont,plaindd]{bmc-maths}
 \\usepackage{arev}
 ")
-;; TODO why does this not work?
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :background "Transparent"))
+
 
 (defun scimax-org-latex-fragment-justify (justification)
   "Justify the latex fragment at point with JUSTIFICATION.

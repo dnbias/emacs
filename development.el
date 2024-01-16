@@ -5,6 +5,7 @@
 (setq display-line-numbers-type 'relative
       highlight-indent-guides-method 'character
       highlight-indent-guides-auto-enabled nil
+      tab-width 4
       line-spacing 0
       doom-font-increment 1
       display-fill-column-indicator-character ?│)

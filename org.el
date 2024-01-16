@@ -98,7 +98,7 @@
   (setq org-format-latex-options
         (plist-put org-format-latex-options :background "Transparent"))
   (setq org-format-latex-options
-      (plist-put org-format-latex-options :scale 1)))
+      (plist-put org-format-latex-options :scale 2.2)))
 
 (use-package! ox-hugo
   :after org)

@@ -176,7 +176,7 @@ determine the exact padding."
    (org-hide :foreground hidden)
    (org-code :background bg)
    (org-block :background bg)
-   (org-quote :foreground fg-alt)
+   (org-quote :foreground fg)
    (org-level-1 :foreground fg)
    (org-level-2 :foreground fg)
    (org-level-3 :foreground fg)
@@ -186,6 +186,9 @@ determine the exact padding."
    (org-level-7 :foreground fg)
    (org-level-8 :foreground fg)
    (org-document-title :foreground fg)
+   ;;;; fringe
+   (fringe :background bg)
+   (org-block-begin-line :background bg :foreground fg-alt)
    ;;;; org-latex
    (font-latex-math-face :background bg)
    ;;;; consult

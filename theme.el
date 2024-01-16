@@ -57,10 +57,10 @@
 (setq doom-modeline-height 15)
 
 
-(setq doom-font (font-spec :family "Iosevka Comfy" :size 17 :height 0.9)
-      doom-big-font (font-spec :family "Iosevka Comfy" :size 25)
+(setq doom-font (font-spec :family "Iosevka Comfy Motion" :size 17 :height 0.9)
+      doom-big-font (font-spec :family "Iosevka Comfy Motion" :size 25)
       doom-symbol-font (font-spec :family "Fira Code")
-      doom-variable-pitch-font (font-spec :family "Quattrocento" :size 17)
+      doom-variable-pitch-font (font-spec :family "Roboto Serif" :size 17)
       ;; doom-variable-pitch-font (font-spec :family "Overpass Nerd Font" :size 17)
       ;; doom-variable-pitch-font (font-spec :family "SF Pro Display" :size 16)
       ;; doom-variable-pitch-font (font-spec :family "Bitter" :size 17)
@@ -83,7 +83,7 @@
   '(org-level-5 :font "Adobe Garamond Pro" :height 1.00 :weight bold)
   '(org-level-6 :font "Adobe Garamond Pro" :height 1.00 :weight bold)
   '(org-code :font "iA Writer Duospace")
-  '(org-quote :font "Adobe Garamond Pro" :slant normal :height 1.10 :size 20))
+  '(org-quote :font "Adobe Garamond Pro" :slant normal :height 1.30 :size 20))
 
 ;; (custom-set-faces
 ;;   '(mode-line ((t (:family "SF Pro Display" :height 1.0))))
