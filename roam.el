@@ -32,6 +32,18 @@
      "%?"
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
+    ("q" "question atomic note" plain
+     (file "~/personal/brain/templates/Question.org")
+      :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
+      :unnarrowed t)
+    ("e" "evidence atomic note" plain
+     (file "~/personal/brain/templates/Evidence.org")
+      :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
+      :unnarrowed t)
+    ("c" "conclusion atomic note" plain
+     (file "~/personal/brain/templates/Conclusion.org")
+      :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
+      :unnarrowed t)
     ("b" "book note" plain
      (file "~/personal/brain/templates/BookNote.org")
       :if-new (file+head "${slug}.org" "#+title: ${title}\n#+date: %U\n")
